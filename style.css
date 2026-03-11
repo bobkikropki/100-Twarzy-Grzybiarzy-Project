@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(127, 127, 127);
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(202, 202, 202);
+    padding: 10px 0 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    z-index: 1000;
+}
+
+header .title {
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+    font-size: 1.2rem;
+}
+
+header button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+/* ensure content doesn't hide behind fixed header */
+body {
+    padding-top: 40px; /* adjust as header height */
+    background-color: rgb(127, 127, 127);
+}

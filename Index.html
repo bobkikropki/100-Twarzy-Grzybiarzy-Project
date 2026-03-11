@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>100 Twarzy Grzybiarzy</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>100 Twarzy Grzybiarzy</h1>
+    <header>
+        <span class="title">100 Twarzy Grzybiarzy</span>
+        <button id="steamLogin" type="button">Log in on Steam</button>
+    </header>
 
     <!-- configuration inputs for the JS API call -->
     <div class="api-config">
@@ -17,21 +21,22 @@
 
     <div id="demo"></div>
 
-    <div class="jsx-3990910460 content_100"><div class="jsx-3990910460 in">
-        <h1 class="jsx-3990910460 text_white shadow_text">Siemka 
-            <span class="jsx-3990910460 desktop_hide">
-                <br class="jsx-3990910460"></span>Your Steam?
+    <div class="jsx-3990910460 content_100">
+        <div class="jsx-3990910460 in">
+            <h1 class="jsx-3990910460 text_white shadow_text">
+                Siemka <span class="jsx-3990910460 desktop_hide"><br class="jsx-3990910460"></span>Your Steam?
             </h1>
-        <!-- original form kept for compatibility, but not required for JS API -->
-        <form action="steam" method="get" autocomplete="off" class="jsx-3990910460">
-            <input aria-label="Steam Import" placeholder="Enter your SteamID" autocomplete="off" 
-                   class="jsx-3990910460 form_text back_white global_padding_big IndexSteam-module__ehsbXG__index_steam" 
-                   type="text" name="userName">
-            <input class="jsx-3990910460 form_button form_blue primary global_padding_big IndexSteam-module__ehsbXG__index_steam" 
-                   type="submit" value="Submit">
-        </form>
-    </div></div>
+            <!-- original form kept for compatibility, but not required for JS API -->
+            <form action="steam" method="get" autocomplete="off" class="jsx-3990910460">
+                <input aria-label="Steam Import" placeholder="Enter your SteamID" autocomplete="off" 
+                       class="jsx-3990910460 form_text back_white global_padding_big IndexSteam-module__ehsbXG__index_steam" 
+                       type="text" name="userName">
+                <input class="jsx-3990910460 form_button form_blue primary global_padding_big IndexSteam-module__ehsbXG__index_steam" 
+                       type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
 
-    <script src="test.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

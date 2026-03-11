@@ -1,5 +1,4 @@
-// simple Hello World script
-console.log('Hello, world!');
+
 
 // helper to perform the API request and show result
 function fetchOwnedGames(apiKey, steamId) {
