@@ -1,5 +1,12 @@
 body {
-    background-color: rgb(127, 127, 127);
+    color: #fff;
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+    background-color: #386A86;
+    width: 10 0%;
+}
+main {
+    margin-top: 60px;
+    padding: 20px;
 }
 
 header {
@@ -7,7 +14,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(202, 202, 202);
+    background-color: #4785A8;
     padding: 10px 0 10px 10px;
     display: flex;
     justify-content: space-between;
@@ -16,20 +23,44 @@ header {
     z-index: 1000;
 }
 
-header .title {
+img.steam-logo {
+    height: 30px;
+    margin-right: 10px;
+    float: right;
+    margin-right: 20px; 
+}
+
+header.title {
     font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
     font-size: 1.2rem;
 }
 
-header button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
+div.tile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(202, 202, 202);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+    text-align: center;
+    transition: transform 0.2s;
+}
+div.tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,.2);
 }
 
-/* ensure content doesn't hide behind fixed header */
-body {
-    padding-top: 40px; /* adjust as header height */
-    background-color: rgb(127, 127, 127);
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #386A86;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0,0,0,.1);
 }
