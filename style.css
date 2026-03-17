@@ -1,35 +1,90 @@
 body {
-    background-color: rgb(127, 127, 127);
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
+#gora-pasek {
+    background-color: #73A580;
+    height: 50px;
     width: 100%;
-    background-color: rgb(202, 202, 202);
-    padding: 10px 0 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
 }
 
-header .title {
-    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
-    font-size: 1.2rem;
+.menu-ikona {
+    float: left;
+    font-size: 35px;
+    color: #888;
+    margin-left: 20px;
+    margin-top: -5px;
 }
 
-header button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
+.znaczek-logo {
+    background-color: #D2DADB;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px; 
+    font-weight: bold;
+    text-align: center;
+    line-height: 30px;
+
+    position: absolute;
+    left: 48%;
+    top: 10px;
 }
 
-/* ensure content doesn't hide behind fixed header */
-body {
-    padding-top: 40px; /* adjust as header height */
-    background-color: rgb(127, 127, 127);
+.kolko-awatar {
+    background-color: #B28381;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.glowa {
+    background-color: #ffffff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+.ramiona {
+    background-color: #ffffff;
+    width: 20px;
+    height: 15px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 1px;
+    opacity: 0.7;
+}
+
+.pierwszy-panel {
+    height: 400px;
+    p{
+        margin-left: 20px;
+    }
+    background: linear-gradient(90deg, rgba(21,21,21,1) 0%, rgba(205,229,215,1) 20%);
+    margin-top: -60px;
+}
+
+.drugi-panel {
+    background-color: #DED6D1;
+    height: 400px;
+}
+
+.trzeci-panel {
+    background-color: #EEC6CA;
+    height: 800px; 
+}
+
+.czwarty-panel {
+    background-color: #FFB7C3;
+    height: 800px;
 }
