@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- simple inline favicon so it always shows up without external files -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍄</text></svg>">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>100 Twarzy Grzybiarzy</title>
@@ -14,8 +16,13 @@
 
     <!-- configuration inputs for the JS API call -->
     <div class="api-config">
-        <label>API Key: <input id="apiKey" type="text" placeholder="Enter your key"></label>
-        <label>Steam ID: <input id="steamId" type="text" value="76561197960434622"></label>
+        <label>API Key: <input id="apiKey" type="text" placeholder="Enter your Steam Web API key"></label>
+        <!--
+          formula for the request URL:
+          https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=YOUR_KEY&steamid=STEAM_ID_64&format=json
+          you only need to provide your key and the 64‑bit SteamID of the user you want to query
+        -->
+        <label>Steam ID (64-bit): <input id="steamId" type="text" value="76561197960434622" placeholder="e.g. 76561197960434622"></label>
         <button id="loadButton">Load Owned Games</button>
     </div>
 
