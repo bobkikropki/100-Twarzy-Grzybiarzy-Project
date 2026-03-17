@@ -1,35 +1,139 @@
-body {
-    background-color: rgb(127, 127, 127);
-}
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
+
+
+
+
+* {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: sans-serif; 
+      padding: 40px; /* marginesy, żeby karuzela nie dotykała krawędzi ekranu */
+      background-color: #f9f9f9;
+      margin: 0%;
+      padding: 0%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .gallery {
+      background: linear-gradient(90deg, rgb(164,25,23) 0%, rgb(238, 139, 26) 20%);
+      padding: 20px 0; /* Dodatkowy odstęp od góry i dołu */
+      border-radius: 10px;
+    }
+
+    .gallery-cell {
+      width: 66%;
+      height: 250px;
+      margin-top: 1em;
+      margin-right: 10px;
+      background: #B19564;
+      border-radius: 10px; /* Zaokrąglone rogi kafelków */
+      counter-increment: gallery-cell;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Delikatny cień */
+    }
+
+    /* Numery wewnątrz komórek */
+    .gallery-cell:before {
+      display: block;
+      text-align: center;
+      content: counter(gallery-cell);
+      line-height: 250px;
+      font-size: 80px;
+      color: white;
+      font-weight: bold;
+    }
+
+
+
+
+
+
+#gora-pasek {
+    background-color: #757992;
+    height: 3em;
     width: 100%;
-    background-color: rgb(202, 202, 202);
-    padding: 10px 0 10px 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,.1);
-    z-index: 1000;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
 }
 
-header .title {
-    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
-    font-size: 1.2rem;
+.menu-ikona {
+    float: left;
+    font-size: 35px;
+    color: #888;
+    margin-left: 20px;
+    margin-top: -5px;
 }
 
-header button {
-    margin-right: 10px;
-    padding: 5px 10px;
-    font-size: 0.9rem;
-    cursor: pointer;
+.znaczek-logo {
+    background-color: #D2DADB;
+    width: 30px;
+    height: 30px;
+    border-radius: 100px; 
+    font-weight: bold;
+    text-align: center;
+    line-height: 30px;
+
+    position: absolute;
+    left: 48%;
+    top: 10px;
 }
 
-/* ensure content doesn't hide behind fixed header */
-body {
-    padding-top: 40px; /* adjust as header height */
-    background-color: rgb(127, 127, 127);
+.kolko-awatar {
+    background-color: #B28381;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.glowa {
+    background-color: #ffffff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+    margin-left: 10px;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+.ramiona {
+    background-color: #ffffff;
+    width: 20px;
+    height: 15px;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 1px;
+    opacity: 0.7;
+}
+
+.pierwszy-panel {
+    height: 400px;
+    p{
+        margin-left: 20px;
+    }
+    margin-top: 3em;
+}
+
+.drugi-panel {
+    background-color: #DED6D1;
+    height: 400px;
+}
+
+.trzeci-panel {
+    background-color: #EEC6CA;
+    height: 800px; 
+}
+
+.czwarty-panel {
+    background-color: #FFB7C3;
+    height: 800px;
 }
