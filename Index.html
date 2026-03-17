@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html lang="pl">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 Twarzy Grzybiarzy</title>
+    <title>100 twarzy grzybiarzy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 <body>
-    <header>
-        <img src="./images/steam/sits_01.png" alt="Log in with Steam" class="steam-logo">
-    </header>
 
-    <main>
-        <div class="tile" id="live">
-            <div class="wide_tile" id="steam"><p>Steam</p></div>
-            <div class="small_tile" id="twitch"><p>Twitch</p></div>
-            <div class="small_tile" id="youtube"><p>YouTube</p></div>
-            <div class="small_tile" id="kick"><p>Kick</p></div>
+    <div id="gora-pasek">
+        <div class="menu-ikona">=</div>
+        
+        <div class="znaczek-logo">L</div>
+        
+        <div class="kolko-awatar">
+            <div class="glowa"></div>
+            <div class="ramiona"></div>
         </div>
-        <div class="tile" id="stats">
-                <div class="wide_tile" id="player-stats"><p>Player Stats</p></div>
-                <div class="small_tile" id="game-stats"><p>Game Stats</p></div>
-        </div>
-        <div class="tile" id="tutorials">
-                <div class="wide_tile" id="beginner"><p>Beginner's Guide</p></div>
-                <div class="small_tile" id="advanced"><p>Advanced Tips</p></div>
-        </div>
-    </main>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="pierwszy-panel">
+        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+            <div class="gallery-cell"></div>
+        </div>
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    </div>
 
-    <footer>
-        <span class="about us">100 Twarzy Grzybiarzy</span>
-    </footer>
+    <div class="drugi-panel"></div>
+
+    <div class="trzeci-panel"></div>
+
+    <div class="czwarty-panel"></div>
+
+    <script src="skrypt.js"></script>
 </body>
 </html>
