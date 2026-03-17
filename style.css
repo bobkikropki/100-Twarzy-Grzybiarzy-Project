@@ -22,7 +22,7 @@
     }
 
     .gallery {
-      background: linear-gradient(90deg, rgba(21,21,21,1) 0%, rgba(205,229,215,1) 20%);
+      background: linear-gradient(90deg, rgb(164,25,23) 0%, rgb(238, 139, 26) 20%);
       padding: 20px 0; /* Dodatkowy odstęp od góry i dołu */
       border-radius: 10px;
     }
@@ -32,7 +32,7 @@
       height: 250px;
       margin-top: 1em;
       margin-right: 10px;
-      background: #8C8;
+      background: #B19564;
       border-radius: 10px; /* Zaokrąglone rogi kafelków */
       counter-increment: gallery-cell;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Delikatny cień */
@@ -55,7 +55,7 @@
 
 
 #gora-pasek {
-    background-color: #73A580;
+    background-color: #757992;
     height: 3em;
     width: 100%;
     position: fixed;
