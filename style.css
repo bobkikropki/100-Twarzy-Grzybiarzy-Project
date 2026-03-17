@@ -1,12 +1,62 @@
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: Arial;
-}
+
+
+
+
+
+* {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    body { 
+      font-family: sans-serif; 
+      padding: 40px; /* marginesy, żeby karuzela nie dotykała krawędzi ekranu */
+      background-color: #f9f9f9;
+      margin: 0%;
+      padding: 0%;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .gallery {
+      background: linear-gradient(90deg, rgba(21,21,21,1) 0%, rgba(205,229,215,1) 20%);
+      padding: 20px 0; /* Dodatkowy odstęp od góry i dołu */
+      border-radius: 10px;
+    }
+
+    .gallery-cell {
+      width: 66%;
+      height: 250px;
+      margin-top: 1em;
+      margin-right: 10px;
+      background: #8C8;
+      border-radius: 10px; /* Zaokrąglone rogi kafelków */
+      counter-increment: gallery-cell;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Delikatny cień */
+    }
+
+    /* Numery wewnątrz komórek */
+    .gallery-cell:before {
+      display: block;
+      text-align: center;
+      content: counter(gallery-cell);
+      line-height: 250px;
+      font-size: 80px;
+      color: white;
+      font-weight: bold;
+    }
+
+
+
+
+
 
 #gora-pasek {
     background-color: #73A580;
-    height: 50px;
+    height: 3em;
     width: 100%;
     position: fixed;
     top: 0px;
@@ -70,8 +120,7 @@ body {
     p{
         margin-left: 20px;
     }
-    background: linear-gradient(90deg, rgba(21,21,21,1) 0%, rgba(205,229,215,1) 20%);
-    margin-top: -60px;
+    margin-top: 3em;
 }
 
 .drugi-panel {
