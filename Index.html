@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 <body>
-
+    
     <div id="gora-pasek">
         <div class="menu-ikona">=</div>
         
@@ -28,12 +28,32 @@
         <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     </div>
 
-    <div class="drugi-panel"></div>
+    <div class="drugi-panel">
+        <div class="rightcol">
+            <div class="rightcol-header">
+                <h2>Steamgamename</h2>
+            </div>
+            <!--Bardzo poglądowe, chłopaki ja testuję-->
+            <div class="rightcol-content">
+                <input class="st_linkget" type="text" id="steamInput" name="fname" placeholder="wklej steamlink">
+                <button onclick="getID()">Pokaż gracza</button>
+                <div id="result"></div>
+            </div>
+        </div>
+        <div class="leftcol">
+            <div class="leftcol-header">
+                <h2>SteamStatistics</h2>
+            </div>
+            <div class="leftcol-content">
+                <p>Statistics</p>
+            </div>
+        </div>
+    </div>
 
     <div class="trzeci-panel"></div>
 
     <div class="czwarty-panel"></div>
 
-    <script src="skrypt.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

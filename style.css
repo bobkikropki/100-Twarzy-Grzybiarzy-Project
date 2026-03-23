@@ -122,17 +122,48 @@
     }
     margin-top: 3em;
 }
-
+/* zawartość panelu 2 */
 .drugi-panel {
     background-color: #DED6D1;
     height: 400px;
+    display: flex;
+    flex-direction: row-reverse;
 }
-
+.rightcol {
+    background-color: #424156;
+    width: 25%;
+    height: 100%;
+    margin-right: 10%;
+    float: unset;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.leftcol{
+    background-color: #4b4a58;
+    width: 55%;
+    height: 100%;
+    margin-left: 0px;
+    float: unset;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.st_linkget{
+    background-color: #111110;
+    width: 80%;
+    height: 30px;
+    border-radius: 10px;
+    margin-left: 5%;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+}
+/* zawartość panelu 2 */
 .trzeci-panel {
     background-color: #EEC6CA;
     height: 800px; 
 }
-
 .czwarty-panel {
     background-color: #FFB7C3;
     height: 800px;
