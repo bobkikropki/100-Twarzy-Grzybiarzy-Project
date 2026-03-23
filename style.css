@@ -127,11 +127,30 @@
     background-color: #DED6D1;
     height: 400px;
 }
-
+/*dawid*/
 .trzeci-panel {
     background-color: #EEC6CA;
-    height: 800px; 
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
+
+.topnav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.topnav input[type=text] {
+    padding: 10px;
+    border: none;
+    margin-top: 20px;
+    font-size: 17px;
+    border-radius: 5px;
+    width: 300px;
+}
+/*dawid*/
 
 .czwarty-panel {
     background-color: #FFB7C3;
