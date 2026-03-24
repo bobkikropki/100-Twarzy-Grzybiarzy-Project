@@ -116,43 +116,6 @@ body {
     margin-top: 3em;
     background-color: #1B2838;
 }
-/* zawartość panelu 2 */
-.drugi-panel {
-    height: 400px;
-    display: flex;
-    flex-direction: row-reverse;
-}
-.rightcol {
-    background-color: #9593be;
-    width: 25%;
-    height: 100%;
-    margin-right: 16.5%;
-    float: unset;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-.leftcol{
-    background-color: #a4a2be;
-    width: 42%;
-    height: 100%;
-    margin-left: 0px;
-    float: unset;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-.st_linkget{
-    background-color: #111110;
-    width: 80%;
-    height: 30px;
-    border-radius: 10px;
-    margin-left: 5%;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    font-weight: bold;
-    margin-left: 20px;
-}
-/* zawartość panelu 2 */
 /*dawid*/
 .trzeci-panel {
     height: 800px; 

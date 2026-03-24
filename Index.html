@@ -1,25 +1,9 @@
-    <html>
-    <head>
-        <title>100 twarzy grzybiarzy</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    </head>
-    <body>
-
-        <div id="gora-pasek">
-            <div class="menu-ikona">=</div>
-            
-            <div class="znaczek-logo">L</div>
-            
-            <div class="kolko-awatar">
-                <div class="glowa"></div>
-                <div class="ramiona"></div>
-            </div>
-        </div>
+<!DOCTYPE html>
 <html>
 <head>
     <title>100 twarzy grzybiarzy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tile2.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 <body>
@@ -44,16 +28,15 @@
             </div>
             <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         </div>
+
     <div class="drugi-panel">
         <div class="rightcol">
             <div class="rightcol-header">
-                <h2>Steamgamename</h2>
+                <a href="SteamLogin.html"><h2>Steam Login</h2></a>
+
             </div>
             <!--Bardzo poglądowe, chłopaki ja testuję-->
             <div class="rightcol-content">
-                <input class="st_linkget" type="text" id="steamInput" name="fname" placeholder="wklej steamlink">
-                <button onclick="getID()">Pokaż gracza</button>
-                <div id="result"></div>
             </div>
         </div>
         <div class="leftcol">
@@ -84,10 +67,9 @@
     </div>
 <!--dawid-->
     <div class="czwarty-panel"></div>
-
-        <script src="skrypt.js"></script>
     </body>
     </html>
     <script src="script.js"></script>
+    <script src="SteamAPI.js"></script>
 </body>
 </html>

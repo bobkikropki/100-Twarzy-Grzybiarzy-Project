@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tile2.css">
+    <link rel="stylesheet" href="Steamlogin.css">
+</head>
+<body>
+    <div id="gora-pasek">
+        <div class="menu-ikona">=</div>
+        <button id="SteamButton" onclick="window.location.href='Index.html'">Home</button>
+        <div class="znaczek-logo">L</div>
+        
+        <div class="kolko-awatar">
+            <div class="glowa"></div>
+            <div class="ramiona"></div>
+        </div>
+    </div>
+                <h1 id="WelcomeText">Steam Login</h1>
+    <div id="loginSection">
+        <input type="text" id="steamInput" placeholder="https://steamcommunity.com/id/..." />
+        <button onclick="pokazDaneGracza()" id="SteamButton">Login</button>
+        <div id="wynik"></div>
+    </div>
+    <script src="SteamAPI.js"></script>
+</body>
+</html>
