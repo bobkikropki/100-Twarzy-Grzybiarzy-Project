@@ -160,31 +160,20 @@
     margin-left: 20px;
 }
 /* zawartość panelu 2 */
-}
 /*dawid*/
 .trzeci-panel {
     background-color: #EEC6CA;
     height: 800px; 
-}
-    height: 800px;
     position: relative;
+    overflow: hidden;
 }
 
 .topnav {
     position: absolute;
-    top: 40px;
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 22%;
-}
-
-.topnav input[type=text] {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    font-size: 18px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .dropdown {
