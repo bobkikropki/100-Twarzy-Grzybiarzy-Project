@@ -1,19 +1,15 @@
-
-
-
-
-
 * {
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-    }
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
-    body { 
-      font-family: sans-serif; 
-      padding: 40px; /* marginesy, żeby karuzela nie dotykała krawędzi ekranu */
-      background-color: #f9f9f9;
-      margin: 0%;
-      padding: 0%;
+body { 
+    font-family: sans-serif; 
+    padding: 40px; /* marginesy, żeby karuzela nie dotykała krawędzi ekranu */
+    background-color: #171A21;
+    margin: 0%;
+    padding: 0%;
+    overflow-x: hidden;
     }
 
     h2 {
@@ -22,51 +18,47 @@
     }
 
     .gallery {
-      background: linear-gradient(90deg, rgb(164,25,23) 0%, rgb(238, 139, 26) 20%);
-      padding: 20px 0; /* Dodatkowy odstęp od góry i dołu */
-      border-radius: 10px;
+        padding: 20px 0; /* Dodatkowy odstęp od góry i dołu */
+        border-radius: 10px;
+        height: 80vh; /* For 100% screen height */
+        width:  100vw; /* For 100% screen width */
     }
-
-    .gallery-cell {
-      width: 66%;
-      height: 250px;
-      margin-top: 1em;
-      margin-right: 10px;
-      background: #B19564;
-      border-radius: 10px; /* Zaokrąglone rogi kafelków */
-      counter-increment: gallery-cell;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Delikatny cień */
-    }
-
-    /* Numery wewnątrz komórek */
-    .gallery-cell:before {
-      display: block;
-      text-align: center;
-      content: counter(gallery-cell);
-      line-height: 250px;
-      font-size: 80px;
-      color: white;
-      font-weight: bold;
-    }
-
-
-
-
-
-
-#gora-pasek {
-    background-color: #757992;
-    height: 3em;
+    
+    .gallery-cell img {
     width: 100%;
-    position: fixed;
-    top: 0px;
-    z-index: 100;
+    height: 100%;
+    object-fit: contain; /* sprawia, że zdjęcie wypełnia kafelek bez zniekształceń */
+    border-radius: 10px; /* dopasowanie do rogów kafelka */
 }
 
-.menu-ikona {
-    float: left;
-    font-size: 35px;
-    color: #888;
+    .gallery-cell {
+      width: 66vw;
+      height: 60vh;
+      margin-top: 5vh;
+      margin-right: 10px;
+      background-color: white;
+      border-radius: 10px; /* Zaokrąglone rogi kafelków */
+      box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Delikatny cień */
+    }
+    
+
+    
+
+    
+    
+    #gora-pasek {
+        background-color: #101214;
+        height: 3em;
+        width: 100%;
+        position: fixed;
+        top: 0px;
+        z-index: 100;
+    }
+    
+    .menu-ikona {
+        float: left;
+        font-size: 35px;
+        color: #888;
     margin-left: 20px;
     margin-top: -5px;
 }
@@ -79,7 +71,7 @@
     font-weight: bold;
     text-align: center;
     line-height: 30px;
-
+    
     position: absolute;
     left: 48%;
     top: 10px;
@@ -116,15 +108,16 @@
 }
 
 .pierwszy-panel {
-    height: 400px;
+    height: 100vh; /* For 100% screen height */
+    width:  100vw; /* For 100% screen width */
     p{
         margin-left: 20px;
     }
     margin-top: 3em;
+    background-color: #1B2838;
 }
 /* zawartość panelu 2 */
 .drugi-panel {
-    background-color: #DED6D1;
     height: 400px;
     display: flex;
     flex-direction: row-reverse;
@@ -162,8 +155,9 @@
 /* zawartość panelu 2 */
 /*dawid*/
 .trzeci-panel {
-    background-color: #EEC6CA;
     height: 800px; 
+    background-color: #1B2838;
+}
     position: relative;
     overflow: hidden;
 }
@@ -225,6 +219,5 @@
 /*dawid*/
 
 .czwarty-panel {
-    background-color: #FFB7C3;
     height: 800px;
 }
