@@ -130,17 +130,17 @@
     flex-direction: row-reverse;
 }
 .rightcol {
-    background-color: #424156;
+    background-color: #9593be;
     width: 25%;
     height: 100%;
-    margin-right: 10%;
+    margin-right: 16.5%;
     float: unset;
     flex-grow: 0;
     flex-shrink: 0;
 }
 .leftcol{
-    background-color: #4b4a58;
-    width: 55%;
+    background-color: #a4a2be;
+    width: 42%;
     height: 100%;
     margin-left: 0px;
     float: unset;
