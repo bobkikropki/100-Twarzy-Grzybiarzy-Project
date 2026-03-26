@@ -79,12 +79,18 @@ body {
 
 .kolko-awatar {
     background-color: #B28381;
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
+    width: 35px; /* Lekko powiększyłem dla widoczności */
+    height: 35px;
+    border-radius: 50%;
     float: right;
     margin-right: 20px;
-    margin-top: 10px;
+    margin-top: 6px;
+    flex-shrink: 0;
+    overflow: hidden; /* To jest kluczowe dla zdjęcia profilowego */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .glowa {
