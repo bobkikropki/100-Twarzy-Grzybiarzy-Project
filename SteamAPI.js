@@ -1,4 +1,4 @@
-const apiKey = 'YOUR_STEAM_API_KEY_HERE'; // <-- Wstaw swój klucz API Steam
+const apiKey = ''; // <-- Wstaw swój klucz API Steam
 const proxyUrl = 'https://corsproxy.io/?';
 
 // 1. Funkcja pomocnicza: Zamiana dowolnego linku Steam na SteamID64
@@ -49,7 +49,9 @@ async function wyswietlProfil(steamId) {
 
             // Zapisujemy ID w pamięci przeglądarki (Ciasteczko/LocalStorage)
             localStorage.setItem('zapisaneSteamID', steamId);
+            
         }
+        await pobierzIGrafikiGier(steamId);
     } catch (error) {
         console.error("Błąd podczas pobierania danych profilu:", error);
     }
@@ -71,6 +73,35 @@ async function pokazDaneGracza() {
         alert(error.message);
     }
 }
+async function pobierzIGrafikiGier(steamId) {
+    try {
+        const gamesUrl = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${apiKey}&steamid=${steamId}&include_appinfo=true&format=json`;
+        const response = await fetch(proxyUrl + encodeURIComponent(gamesUrl));
+        const data = await response.json();
+
+        if (data.response && data.response.games) {
+            // Sortujemy po czasie gry (playtime_forever)
+            const gry = data.response.games.sort((a, b) => b.playtime_forever - a.playtime_forever);
+            
+            // TU ZMIANA: Szukamy buttonów wewnątrz .rightcol
+            const przyciski = document.querySelectorAll('.rightcol button');
+
+            gry.slice(0, przyciski.length).forEach((gra, index) => {
+                const btn = przyciski[index];
+                if (btn) {
+                    // Link do grafiki "header" (szeroka grafika gry)
+                    const imageUrl = `https://steamcdn-a.akamaihd.net/steam/apps/${gra.appid}/header.jpg`;
+                    
+                    // Nakładamy przyciemnienie (linear-gradient), żeby biały tekst był widoczny
+                    btn.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${imageUrl}')`;
+                    btn.innerText = gra.name;
+                }
+            });
+        }
+    } catch (error) {
+        console.error("Błąd pobierania gier:", error);
+    }
+}
 
 // 4. AUTOMATYCZNE LOGOWANIE: Sprawdzanie przy starcie strony
 window.onload = async function() {
@@ -78,6 +109,7 @@ window.onload = async function() {
     if (zapamietaneID) {
         console.log("Znaleziono zapisane ID:", zapamietaneID);
         await wyswietlProfil(zapamietaneID);
+        await pobierzIGrafikiGier(zapamietaneID);
     }
 };
 function wyloguj() {
