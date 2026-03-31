@@ -4,7 +4,7 @@
 }
 .drugi-panel {
        height: 50vh;
-       width: 100vw;
+       width: 100%;
       display: flex;
       flex-direction: row-reverse;
 }
@@ -14,7 +14,6 @@
     width: 25%;
     height: 100%;
     margin-right: 16.5%;
-    float: unset;
     flex-grow: 0;
     flex-shrink: 0;
 }
@@ -34,5 +33,13 @@
 
 }
 .stat-button:hover {
-    filter: brightness(1.3);
+    filter: brightness(1.5);
+    background-color: #1a1a19;
+    color: white;
+}
+.rightcol::-webkit-scrollbar {
+    width: 5px;
+}
+.rightcol::-webkit-scrollbar-thumb {
+    background: #444;
 }
