@@ -1,0 +1,27 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+    .drugi-panel {
+       height: 400px;
+      display: flex;
+      flex-direction: row-reverse;
+}
+.rightcol {
+    background-color: #232730;
+    width: 25%;
+    height: 100%;
+    margin-right: 16.5%;
+    float: unset;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.leftcol{
+    background-color: #292e37;
+    width: 42%;
+    height: 100%;
+    margin-left: 0px;
+    float: unset;
+    flex-grow: 0;
+    flex-shrink: 0;
+}

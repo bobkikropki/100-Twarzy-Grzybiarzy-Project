@@ -46,23 +46,71 @@ body {
 
     
     
-    #gora-pasek {
-        background-color: #101214;
-        height: 3em;
-        width: 100%;
-        position: fixed;
-        top: 0px;
-        z-index: 100;
-    }
+#gora-pasek {
+    background-color: #101214;
+    height: 3em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
     
-    .menu-ikona {
-        float: left;
-        font-size: 35px;
-        color: #888;
-    margin-left: 20px;
-    margin-top: -5px;
+   
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+    box-sizing: border-box; 
+}
+    
+.menu-ikona {
+    cursor: pointer;
+    font-size: 30px;
+    color: #888;
+    user-select: none;
 }
 
+
+.side-menu {
+    position: fixed;
+    top: 3em;
+    left: -250px;
+    width: 250px;
+    
+ 
+    height: auto; 
+    
+   
+    background-color: #101214;
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+    border-right: 1px solid #1f2226;
+    border-bottom: 1px solid #1f2226; 
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+
+.side-menu a {
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    border-bottom: 1px solid #1f2226;
+    cursor: pointer;
+}
+
+.side-menu a:hover {
+    background-color: #1f2226;
+}
+
+
+.menu-ikona {
+    cursor: pointer;
+}
 .znaczek-logo {
     background-color: #D2DADB;
     width: 30px;
@@ -79,12 +127,18 @@ body {
 
 .kolko-awatar {
     background-color: #B28381;
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
+    width: 35px; /* Lekko powiększyłem dla widoczności */
+    height: 35px;
+    border-radius: 50%;
     float: right;
     margin-right: 20px;
-    margin-top: 10px;
+    margin-top: 6px;
+    flex-shrink: 0;
+    overflow: hidden; /* To jest kluczowe dla zdjęcia profilowego */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .glowa {
@@ -116,43 +170,6 @@ body {
     margin-top: 3em;
     background-color: #1B2838;
 }
-/* zawartość panelu 2 */
-.drugi-panel {
-    height: 400px;
-    display: flex;
-    flex-direction: row-reverse;
-}
-.rightcol {
-    background-color: #9593be;
-    width: 25%;
-    height: 100%;
-    margin-right: 16.5%;
-    float: unset;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-.leftcol{
-    background-color: #a4a2be;
-    width: 42%;
-    height: 100%;
-    margin-left: 0px;
-    float: unset;
-    flex-grow: 0;
-    flex-shrink: 0;
-}
-.st_linkget{
-    background-color: #111110;
-    width: 80%;
-    height: 30px;
-    border-radius: 10px;
-    margin-left: 5%;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-    font-weight: bold;
-    margin-left: 20px;
-}
-/* zawartość panelu 2 */
 /*dawid*/
 .trzeci-panel {
     height: 800px; 
@@ -219,4 +236,95 @@ body {
 
 .czwarty-panel {
     height: 800px;
+}
+html {
+  scroll-behavior: smooth;
+}
+.main-footer {
+    background-color: #171a21; 
+    color: #8f98a0;
+    padding: 60px 0 30px 0; /* Więcej oddechu */
+    border-top: 1px solid #2a2d32;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    max-width: 1100px; /* Nieco węższy niż gra dla elegancji */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 40px;
+}
+
+/* Stylizacja logo 100 TWARZY GRZYBIARZY */
+.footer-logo {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.footer-logo span {
+    color: #66c0f4; /* Niebieski akcent Steam */
+    text-shadow: 0 0 10px rgba(102, 192, 244, 0.3);
+}
+
+.footer-section.about {
+    max-width: 500px; /* Żeby tekst opisu się nie rozlewał */
+}
+
+.footer-section.about p {
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Stylizacja Kontaktu */
+.footer-section.contact h3 {
+    color: #66c0f4;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.footer-section.contact p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+}
+
+.footer-section.contact p:hover {
+    color: #ffffff;
+}
+
+/* Ikony społecznościowe */
+.social-icons {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: #8f98a0;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #66c0f4;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(42, 45, 50, 0.5);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
