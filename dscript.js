@@ -1,5 +1,5 @@
 
-const API_KEY = 'AIzaSyAUkxsoa0oj4nmYCu7cmuJlVdo4UeZJvJY';
+const API_KEY = '';
 const searchBtn = document.getElementById('search-btn');
 const queryInput = document.getElementById('youtube-query');
 const resultsContainer = document.getElementById('video-results');
