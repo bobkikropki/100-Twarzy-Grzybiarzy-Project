@@ -117,20 +117,20 @@
 </div>
 
     <!--dawid-->
-    <div id="trzeci-panel" class="trzeci-panel">
-    <div class="topnav">
-        <input type="text" placeholder="Wyszukaj..">
+<div class="trzeci-panel" id="trzeci-panel">
+    <div class="sidebar">
+        <input type="text" id="youtube-query" placeholder="Wyszukaj..">
+        <button id="search-btn">Szukaj</button>
     </div>
-
-    <div class="dropdown">
-        <button onclick="dropDownList()" class="dropbtn">Wybor gry</button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#">gra 1</a>
-            <a href="#">gra 2</a>
-            <a href="#">gra 3</a>
-        </div>
+    <div id="video-results">
     </div>
+</div>
+<div id="video-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <iframe id="youtube-player" src="" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
+</div>
 <!--dawid-->
     <div class="czwarty-panel"></div>
 <footer class="main-footer">
@@ -161,5 +161,6 @@
     <script src="script.js"></script>
     <script src="SteamAPI.js"></script>
     <script src="game.js"></script>
+    <script src="dscript.js"></script>
 </body>
 </html>
