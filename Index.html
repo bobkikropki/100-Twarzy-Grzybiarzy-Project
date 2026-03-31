@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>100 twarzy grzybiarzy</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="dstyle.css">
@@ -28,21 +30,21 @@
         </div>
     </div>
 
-        <div id="pierwszy-panel" class="pierwszy-panel">
-            <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/hi.gif" alt="hi"></div>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/YouTube-Logo-PNG7.png" alt="youtube"></div>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/Kick-Logo.png" alt="kick"></div>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/twitch.png" alt="twitch" style="object-fit: cover;"></div>
+    <div class="pierwszy-panel" id="pierwszy-panel">
+        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+            <div class="gallery-cell"><img src="pliki/zdjęcia/hi.gif" alt="hi"></div>
+            <div class="gallery-cell"><img src="pliki/zdjęcia/YouTube-Logo-PNG7.png" alt="youtube"></div>
+            <div class="gallery-cell"><img src="pliki/zdjęcia/Kick-Logo.png" alt="kick"></div>
+            <div class="gallery-cell" id="twitch-cell">
+                <div class="twitch-loading">Ładowanie najpopularniejszego streama z Twitcha...</div>
             </div>
-            <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         </div>
-
+    </div>
     <div class="drugi-panel">
         <div class="rightcol">
             <!--Bardzo poglądowe, chłopaki ja testuję-->
             <div class="rightcol-content">
-                <button class="stat-button"><div class:"InsideIMG"></div></button>
+                <button class="stat-button"><div class="InsideIMG"></div></button>
                 <button class="stat-button">tf2</button>
                 <button class="stat-button">gmod</button>
                 <button class="stat-button">terraria</button>
@@ -65,11 +67,11 @@
     
     <div class="prostokat-srodek" style="width: 85%; height: 90%; background-color: #2a2d32; display: flex; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
         
-        <div class="leftcol" style="flex: 1; background: rgba(0,0,0,0.2); padding: 20px; border-right: 1px solid #444;">
-            <div class="leftcol-header">
+        <div class="leftcol-gra" style="flex: 1; background: rgba(0,0,0,0.2); padding: 20px; border-right: 1px solid #444;">
+            <div class="leftcol-header-gra">
                 <h2 style="color: #66c0f4; text-align: center;">Centrum Quizu</h2>
             </div>
-            <div class="leftcol-content">
+            <div class="leftcol-content-gra">
                 <div class="game-stats" style="background: #171a21; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
                     <p>Punkty: <strong id="current-points" style="color: #5cff5c;">0</strong></p>
                     <p>Pytanie: <strong id="question-counter">0/10</strong></p>
@@ -86,7 +88,7 @@
             </div>
         </div>
 
-        <div class="rightcol" style="flex: 3; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="rightcol-gra" style="flex: 3; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
             
             <div id="welcome-screen" style="text-align: center;">
                 <h1 style="color: #66c0f4; font-size: 2.5rem;">MILIONERZY</h1>
@@ -156,8 +158,6 @@
         &copy; 2026 100 TWARZY GRZYBIARZY | CREATED BY SIGMY
     </div>
 </footer>
-    </body>
-    </html>
     <script src="script.js"></script>
     <script src="SteamAPI.js"></script>
     <script src="game.js"></script>
