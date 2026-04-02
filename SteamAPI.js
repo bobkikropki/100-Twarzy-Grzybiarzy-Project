@@ -1,4 +1,4 @@
-const apiKey = 'YOUR_STEAM_API_KEY_HERE'; // <-- Wstaw swój klucz API Steam
+const apiKey = ''; // <-- Wstaw swój klucz API Steam
 const proxyUrl = 'https://corsproxy.io/?';
 
 // 1. Funkcja pomocnicza: Zamiana dowolnego linku Steam na SteamID64
@@ -96,6 +96,7 @@ async function pobierzIGrafikiGier(steamId) {
                     btn.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${imageUrl}')`;
                     btn.innerText = gra.name;
                 }
+                
             });
         }
     } catch (error) {

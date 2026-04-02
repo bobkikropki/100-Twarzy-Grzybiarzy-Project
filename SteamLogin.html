@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="tile2.css">
     <link rel="stylesheet" href="Steamlogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="gora-pasek">
-        <div class="menu-ikona">=</div>
-        <button id="SteamButton" onclick="window.location.href='Index.html'">Home</button>
-        <div class="znaczek-logo">L</div>
-        <div id="userAvatarContainer" class="kolko-awatar">
-            <div class="glowa"></div>
-            <div class="ramiona"></div>
-        </div>
-        <button onclick="wyloguj()" id="LogoutButton">Wyloguj</button>
+       <div class="menu-ikona" onclick="toggleMenu()">=</div>
+
+    <nav id="side-menu" class="side-menu">
+        <a href="#pierwszy-panel" onclick="gotohome()">Strona Główna</a>
+    </nav>
+          <div id="userAvatarContainer" class="kolko-awatar">
+                <div class="glowa"></div>
+                <div class="ramiona"></div>
+          </div>
+          <button onclick="wyloguj()" id="LogoutButton">Wyloguj</button>
     </div>
                 <h1 id="WelcomeText">Steam Login</h1>
     <div id="loginSection">
@@ -25,6 +28,10 @@
         <button onclick="pokazDaneGracza()" id="SteamButton">Login</button>
         <div id="wynik"></div>
     </div>
+    <script src="script.js"></script>
     <script src="SteamAPI.js"></script>
+    <script src="game.js"></script>
+    <script src="dscript.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 </html>
