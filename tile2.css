@@ -49,9 +49,21 @@
     font-weight: bold;
     cursor: pointer;
     transition: color 0.3s ease;
+    width: 25%;
 }
 .leftcol-bar button:hover {
     color: #66c0f4;
+}
+.leftcol-bar input {
+    background-color: transparent;
+    padding: 8px;
+    border: 1px solid #34495e;
+    color: white;
+    width: 25%;
+}
+.leftcol-bar input:focus {
+    outline: none;
+    border-color: #66c0f4;
 }
 .rightcol button{
     display: flex;           /* Układ poziomy: obrazek | tekst */

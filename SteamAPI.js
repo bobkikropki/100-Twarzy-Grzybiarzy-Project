@@ -1,7 +1,8 @@
 const apiKey = ''; 
 const proxyUrl = 'https://corsproxy.io/?';
 
-let zapisanaListaGier = []; 
+let zapisanaListaGier = []; // Wszystkie gry pobrane z API
+let przefiltrowaneGry = []; // Gry po uwzględnieniu wyszukiwarki
 let wyswietloneGry = 0;
 const PORCJA_GIER = 5; 
 
@@ -53,7 +54,7 @@ async function pobierzIGrafikiGier(steamId) {
 
         if (data.response && data.response.games) {
             zapisanaListaGier = data.response.games;
-            // Domyślnie sortujemy po czasie gry
+            przefiltrowaneGry = [...zapisanaListaGier]; // Na starcie pokazujemy wszystko
             sortujGry('playtime', document.querySelector('.leftcol-btn'));
         }
     } catch (error) {
@@ -61,29 +62,51 @@ async function pobierzIGrafikiGier(steamId) {
     }
 }
 
-// 4. Logika sortowania - DODANO SORTOWANIE PO OSTATNIO GRANYCH
+// 4. Logika Wyszukiwania
+function filtrujGry() {
+    const query = document.getElementById('searchInput').value.toLowerCase();
+    
+    // Filtrujemy oryginalną listę gier
+    przefiltrowaneGry = zapisanaListaGier.filter(gra => 
+        gra.name.toLowerCase().includes(query)
+    );
+
+    // Resetujemy widok i ładujemy od nowa
+    wyswietloneGry = 0;
+    document.querySelector('.rightcol-content').innerHTML = ""; 
+    ladujWiecejGier();
+}
+
+// 5. Logika sortowania
 function sortujGry(metoda, kliknietyBtn) {
     document.querySelectorAll('.leftcol-bar button').forEach(btn => btn.classList.remove('active-sort'));
     if (kliknietyBtn) kliknietyBtn.classList.add('active-sort');
 
-    if (metoda === 'playtime') {
-        zapisanaListaGier.sort((a, b) => b.playtime_forever - a.playtime_forever);
-    } else if (metoda === 'name') {
-        zapisanaListaGier.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (metoda === 'recent') {
-        // b.rtime_last_played to timestamp Unixa - im większy, tym nowsza data
-        zapisanaListaGier.sort((a, b) => (b.rtime_last_played || 0) - (a.rtime_last_played || 0));
-    }
+    // Sortujemy obie listy, aby wyszukiwanie po sortowaniu też działało
+    const sortFn = (a, b) => {
+        if (metoda === 'playtime') return b.playtime_forever - a.playtime_forever;
+        if (metoda === 'name') return a.name.localeCompare(b.name);
+        if (metoda === 'recent') return (b.rtime_last_played || 0) - (a.rtime_last_played || 0);
+        return 0;
+    };
+
+    zapisanaListaGier.sort(sortFn);
+    przefiltrowaneGry.sort(sortFn);
 
     wyswietloneGry = 0;
     document.querySelector('.rightcol-content').innerHTML = ""; 
     ladujWiecejGier();
 }
 
-// 5. Ładowanie gier (Lazy Loading)
+// 6. Ładowanie gier (używa przefiltrowaneGry)
 function ladujWiecejGier() {
     const container = document.querySelector('.rightcol-content');
-    const kolejnaPorcja = zapisanaListaGier.slice(wyswietloneGry, wyswietloneGry + PORCJA_GIER);
+    const kolejnaPorcja = przefiltrowaneGry.slice(wyswietloneGry, wyswietloneGry + PORCJA_GIER);
+
+    if (kolejnaPorcja.length === 0 && wyswietloneGry === 0) {
+        container.innerHTML = "<p style='color: #888; text-align: center; padding: 20px;'>No games found.</p>";
+        return;
+    }
 
     kolejnaPorcja.forEach(gra => {
         const btn = document.createElement('button');
@@ -109,16 +132,16 @@ function ladujWiecejGier() {
     wyswietloneGry += PORCJA_GIER;
 }
 
-// 6. Scroll Listener
+// 7. Scroll Listener
 document.querySelector('.rightcol').addEventListener('scroll', function() {
     if (this.scrollTop + this.clientHeight >= this.scrollHeight - 20) {
-        if (wyswietloneGry < zapisanaListaGier.length) {
+        if (wyswietloneGry < przefiltrowaneGry.length) {
             ladujWiecejGier();
         }
     }
 });
 
-// 7. Statystyki
+// 8. Statystyki
 async function Showstats(appId, titleName, playtime, clickedBtn) {
     const content = document.querySelector('.leftcol-content');
     const steamId = localStorage.getItem('zapisaneSteamID');
@@ -151,11 +174,11 @@ async function Showstats(appId, titleName, playtime, clickedBtn) {
                 </div>
             `;
         } else {
-            statsHTML += `<p style="color: #888; margin-top: 15px;"><i>This production does not have Steam achievements.</i></p>`;
+            statsHTML += `<p style="color: #888; margin-top: 15px;"><i>No achievement data.</i></p>`;
         }
         content.innerHTML = statsHTML;
     } catch (e) {
-        content.innerHTML = `<p style="color: #ff4d4d;">Error loading achievements.</p>`;
+        content.innerHTML = `<p style="color: #ff4d4d;">Error loading stats.</p>`;
     }
 }
 
