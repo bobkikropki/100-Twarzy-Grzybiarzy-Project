@@ -377,3 +377,132 @@ html {
     font-size: 0.8rem;
     letter-spacing: 1px;
 }
+#kick-cell {
+    background-color: #0b0e0f; /* Ciemne tło Kicka */
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.kick-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #53fc18; /* Zielony kolor Kicka */
+    text-align: center;
+    font-weight: bold;
+}
+
+.kick-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.kick-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kick-meta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+}
+
+.kick-status {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background-color: #53fc18; /* Jaskrawa zieleń */
+    color: #000; /* Czarny tekst na zielonym tle */
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.kick-meta h3 {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.kick-meta p {
+    margin: 0;
+    color: #cccccc;
+}
+
+/* --- ODTWARZACZ KICK --- */
+.kick-embed-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #0b0e0f;
+}
+
+.kick-frame {
+    width: 100%;
+    height: calc(100% - 110px); /* Zostawia 110px na dolny pasek z info */
+    min-height: 0;
+    border: 0;
+    background-color: #000;
+}
+
+.kick-embed-info {
+    padding: 14px 18px 18px;
+    background: linear-gradient(180deg, #18181b 0%, #0b0e0f 100%);
+    color: white;
+    height: 110px;
+}
+
+.kick-embed-info h3 {
+    margin: 8px 0 4px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.kick-embed-info p {
+    display: block;
+    margin: 0;
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+/* --- WYSZUKIWARKA / DROPDOWN KICK --- */
+#kick-cell {
+    position: relative; /* Bardzo ważne, żeby wyszukiwarka nie uciekła poza kafelek! */
+}
+
+.kick-search-bar {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
+    background-color: rgba(11, 14, 15, 0.85); /* Lekko przezroczyste tło */
+    border: 2px solid #53fc18; /* Zielona ramka Kicka */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    transition: 0.3s;
+}
+
+/* Po najechaniu myszką tło robi się zielone */
+.kick-search-bar:hover, .kick-search-bar:focus {
+    background-color: #53fc18;
+    color: black;
+}
