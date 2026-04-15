@@ -217,3 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+function refhome() {
+    window.location.href = 'Index.html';
+}
