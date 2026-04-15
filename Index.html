@@ -15,8 +15,12 @@
     
 <div id="gora-pasek">
     <div class="menu-ikona" onclick="toggleMenu()">=</div>
-
-    <div class="znaczek-logo">L</div>
+<<div class="top-search-container">
+        <input type="text" id="game-search-input" placeholder="Wyszukaj grę na Steam..." autocomplete="off">
+        <i class="fas fa-search"></i>
+        <div id="search-suggestions" class="suggestions-box"></div>
+    </div>
+   <div class="znaczek-logo" id="main-logo">L</div>
 
 <nav id="side-menu" class="side-menu">
     <a href="#pierwszy-panel" onclick="toggleMenu()">Strona Główna</a>
@@ -34,7 +38,9 @@
         <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
             <div class="gallery-cell"><img src="pliki/zdjęcia/hi.gif" alt="hi"></div>
             <div class="gallery-cell"><img src="pliki/zdjęcia/YouTube-Logo-PNG7.png" alt="youtube"></div>
-            <div class="gallery-cell"><img src="pliki/zdjęcia/Kick-Logo.png" alt="kick"></div>
+            <div class="gallery-cell" id="kick-cell">
+    <div class="kick-loading">Ładowanie najpopularniejszego streama z Kicka...</div>
+</div>
             <div class="gallery-cell" id="twitch-cell">
                 <div class="twitch-loading">Ładowanie najpopularniejszego streama z Twitcha...</div>
             </div>
@@ -100,7 +106,7 @@
                 <div id="image-container" style="text-align: center; margin-bottom: 20px;">
                     <img id="q-img" src="" style="max-height: 350px; border-radius: 8px; border: 2px solid #444;">
                 </div>
-                <h2 id="q-text" style="text-align: center; margin-bottom: 25px;">Pytanie...</h2>
+                <h2 id="q-text" style="text-align: center; margin-bottom: 25px; color: #aaa9a9;">Pytanie...</h2>
                 
                 <div class="answers-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
                     <button class="answer-btn" onclick="handleAnswer(0)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja A</button>
@@ -153,12 +159,52 @@
                 <a href="#"><i class="fab fa-github"></i></a>
             </div>
         </div>
+
+        <div class="footer-section accessibility">
+            <h3>Ustawienia strony</h3>
+            <button class="a11y-footer-btn" onclick="toggleA11yPanel()" aria-label="Otwórz panel ułatwień dostępu">
+                <i class="fas fa-universal-access"></i> Ułatwienia dostępu
+            </button>
+        </div>
     </div>
 
     <div class="footer-bottom">
         &copy; 2026 100 TWARZY GRZYBIARZY | CREATED BY SIGMY
     </div>
 </footer>
+
+<div id="a11y-panel" class="a11y-side-panel">
+    <div class="a11y-header">
+        <h3>Ułatwienia dostępu</h3>
+        <span class="close-a11y" onclick="toggleA11yPanel()">&times;</span>
+    </div>
+    
+    <div class="a11y-content">
+        <div class="a11y-option">
+            <span class="a11y-label-text">Tryb dla daltonistów (Protanopia)</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+        <div class="a11y-option">
+            <span class="a11y-label-text">Wysoki kontrast (Tekst)</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+        <div class="a11y-option">
+            <span class="a11y-label-text">Większa czcionka (+20%)</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
     <script src="SteamAPI.js"></script>
     <script src="game.js"></script>

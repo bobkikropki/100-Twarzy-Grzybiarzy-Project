@@ -127,15 +127,39 @@ const quizData = {
             correct: 0
 },
     ],
-    'Wiedźmin': [
-        { img: '', q: 'Z jakiej szkoły pochodzi Geralt?', a: ['Kota', 'Gryfa', 'Wilka', 'Niedźwiedzia'], correct: 2 },
-        { img: '', q: 'Jak nazywa się ta twierdza?', a: ['Wyzima', 'Kaer Morhen', 'Novigrad', 'Skellige'], correct: 1 },
-        
+'Wiedźmin': [
+        { img: '', q: 'Z jakiej szkoły wiedźmińskiej pochodzi Geralt?', a: ['Szkoły Kota', 'Szkoły Gryfa', 'Szkoły Wilka', 'Szkoły Żmii'], correct: 2 },
+        { img: '', q: 'Jak ma na imię wierny koń Geralta?', a: ['Plotka', 'Płotka', 'Roach', 'Kasztanka'], correct: 1 },
+        { img: '', q: 'Kim z zawodu jest Jaskier?', a: ['Wiedźminem', 'Kupcem', 'Bardem', 'Medykiem'], correct: 2 },
+        { img: '', q: 'Który znak wiedźmiński tworzy magiczną tarczę ochronną?', a: ['Igni', 'Aard', 'Quen', 'Axii'], correct: 2 },
+        { img: '', q: 'Jak nazywa się przybrana córka Geralta?', a: ['Triss', 'Yennefer', 'Keira', 'Ciri'], correct: 3 },
+        { img: '', q: 'Która gra karciana jest uwielbiana przez mieszkańców Kontynentu?', a: ['Gwint', 'Kości', 'Pasjans', 'Poker'], correct: 0 },
+        { img: '', q: 'Kto jest cesarzem Nilfgaardu w grze Wiedźmin 3?', a: ['Foltest', 'Emhyr var Emreis', 'Radowid', 'Dijkstra'], correct: 1 },
+        { img: '', q: 'Jak nazywa się żona Krwawego Barona?', a: ['Tamara', 'Keira', 'Anna', 'Priscilla'], correct: 2 },
+        { img: '', q: 'Który eliksir najszybciej regeneruje żywotność Geralta?', a: ['Grom', 'Jaskółka', 'Biały Miód', 'Puszczyk'], correct: 1 },
+        { img: '', q: 'Jak ma na imię główny antagonista, Król Dziki Gon?', a: ['Imlerith', 'Caranthir', 'Eredin', 'Avallac\'h'], correct: 2 },
+        { img: '', q: 'W którym rejonie znajduje się Akademia Oxenfurcka?', a: ['W Redanii', 'W Temerii', 'Na Skellige', 'W Toussaint'], correct: 0 },
+        { img: '', q: 'Który z tych potworów zaliczany jest do wampirów wyższych?', a: ['Alp', 'Bruxa', 'Garkain', 'Regis'], correct: 3 },
+        { img: '', q: 'Co jest główną słabością wilkołaków?', a: ['Złoto', 'Ogień', 'Srebro i pył księżycowy', 'Żelazo'], correct: 2 },
+        { img: '', q: 'Jak nazywa się pierwszy duży dodatek fabularny do Wiedźmina 3?', a: ['Krew i Wino', 'Serca z Kamienia', 'Dziki Gon', 'Zabójcy Królów'], correct: 1 },
+        { img: '', q: 'Kim są przerażające istoty rządzące Krzywuchowymi Moczarami?', a: ['Wampirami', 'Wiedźmami (Prządka, Tkaczka, Szepciucha)', 'Utopcami', 'Leszymi'], correct: 1 }
     ],
     'Isaac': [
-        { img: '', q: 'Co to za item?', a: ['Kota', 'Gryfa', 'Wilka', 'Niedźwiedzia'], correct: 2 },
-        { img: '', q: 'Jak nazywa się ta twierdza?', a: ['Wyzima', 'Kaer Morhen', 'Novigrad', 'Skellige'], correct: 1 },
-        
+        { img: '', q: 'Jaki przedmiot zmienia łzy Isaaca w potężny, krwawy laser?', a: ['Sacred Heart', 'Brimstone', 'Godhead', 'Polyphemus'], correct: 1 },
+        { img: '', q: 'Jak nazywa się postać, która zaczyna grę tylko z niebieskimi sercami (Soul Hearts)?', a: ['Azazel', 'Magdalene', '??? (Blue Baby)', 'Eve'], correct: 2 },
+        { img: '', q: 'Które pomieszczenie pozwala zdobyć silne przedmioty kosztem pojemników na serca?', a: ['Treasure Room', 'Angel Room', 'Devil Room', 'Secret Room'], correct: 2 },
+        { img: '', q: 'Co robi kostka "The D6", z którą startuje Isaac (po jej odblokowaniu)?', a: ['Zmienia statystyki', 'Zmienia przedmioty na piedestałach', 'Odnawia zdrowie', 'Zabija wszystkich wrogów'], correct: 1 },
+        { img: '', q: 'Z ilu części składa się potomek (chowaniec) "Super Meat Boy"?', a: ['2', '3', '4', '5'], correct: 2 },
+        { img: '', q: 'Co daje zebranie trzech przedmiotów z zestawu kota Guppy\'ego?', a: ['Nieśmiertelność', 'Zdolność latania i generowanie much', 'Nieskończone bomby', 'Brimstone'], correct: 1 },
+        { img: '', q: 'Ile wynosi podstawowy limit monet (bez specjalnych itemów), jaki może unieść gracz?', a: ['50', '99', '100', '999'], correct: 1 },
+        { img: '', q: 'Kto jest ostatecznym bossem w lokacji "The Chest"?', a: ['The Lamb', 'Mega Satan', '??? (Blue Baby)', 'Hush'], correct: 2 },
+        { img: '', q: 'Co robi karta Tarota "The Fool"?', a: ['Zabija gracza', 'Daje darmowy przedmiot', 'Teleportuje na początek aktualnego piętra', 'Odkrywa całą mapę'], correct: 2 },
+        { img: '', q: 'Jak nazywa się klątwa (Curse), która ukrywa wygląd przedmiotów przed ich podniesieniem?', a: ['Curse of the Blind', 'Curse of the Lost', 'Curse of the Unknown', 'Curse of the Labyrinth'], correct: 0 },
+        { img: '', q: 'Który z bossów z pierwszych pięter wygląda jak gigantyczna mucha?', a: ['Monstro', 'Pin', 'Duke of Flies', 'Gurdy'], correct: 2 },
+        { img: '', q: 'Która postać w grze strzela krótkim, laserowym zionięciem od samego początku?', a: ['Azazel', 'Samson', 'Cain', 'Judas'], correct: 0 },
+        { img: '', q: 'Jak nazywają się dwie postacie, którymi gracz steruje w tym samym czasie?', a: ['Isaac i Guppy', 'Jacob i Esau', 'Eden i Eve', 'Samson i Delilah'], correct: 1 },
+        { img: '', q: 'Co znajduje się w złotych (Golden) skrzynkach?', a: ['Tylko klucze', 'Przedmioty użytkowe i monety', 'Zawsze przedmioty aktywne', 'Bossowie'], correct: 1 },
+        { img: '', q: 'Jaki jest główny cel (fabularny) Isaaca uciekającego do piwnicy?', a: ['Szukanie skarbu', 'Ucieczka przed matką', 'Zabicie potworów', 'Rozwiązanie zagadki'], correct: 1 }
     ]
 };
 
