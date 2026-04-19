@@ -1,4 +1,4 @@
-const apiKey = ''; 
+const apiKey = '23CAC94E18CA36E7EA73EC975739CDBE'; 
 const proxyUrl = 'https://corsproxy.io/?';
 
 let zapisanaListaGier = []; // Wszystkie gry pobrane z API
@@ -6,7 +6,7 @@ let przefiltrowaneGry = []; // Gry po uwzględnieniu wyszukiwarki
 let wyswietloneGry = 0;
 const PORCJA_GIER = 5; 
 
-// 1. Wyciąganie SteamID
+// --- 1. WYCIĄGANIE STEAMID Z LINKU ---
 async function wyciagnijSteamID(link) {
     const cleanLink = link.replace(/\/$/, "");
     const parts = cleanLink.split('/');
@@ -17,14 +17,14 @@ async function wyciagnijSteamID(link) {
         const response = await fetch(proxyUrl + encodeURIComponent(resolveUrl));
         const data = await response.json();
         if (data.response.success === 1) return data.response.steamid;
-        throw new Error("User not found.");
+        throw new Error("Użytkownik nie został znaleziony.");
     } else if (cleanLink.includes('/profiles/')) {
         return lastPart;
     }
-    throw new Error("Invalid link format.");
+    throw new Error("Nieprawidłowy format linku Steam.");
 }
 
-// 2. Wyświetlanie profilu
+// --- 2. WYŚWIETLANIE PROFILU I NAKŁADANIE AWATARA ---
 async function wyswietlProfil(steamId) {
     try {
         const summaryUrl = `https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key=${apiKey}&steamids=${steamId}`;
@@ -35,17 +35,22 @@ async function wyswietlProfil(steamId) {
         if (gracz) {
             const container = document.getElementById('userAvatarContainer');
             if (container) {
-                container.innerHTML = `<img src="${gracz.avatarfull}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: block;">`;
+                // Nakładamy zdjęcie Steam na bazową ikonę
+                container.innerHTML = `<img src="${gracz.avatarfull}" class="steam-avatar-overlay">`;
             }
             localStorage.setItem('zapisaneSteamID', steamId);
+            
+            // Jeśli jesteśmy na podstronie ze statystykami (istnieje rightcol), pobierz gry
+            if (document.querySelector('.rightcol')) {
+                await pobierzIGrafikiGier(steamId);
+            }
         }
-        await pobierzIGrafikiGier(steamId);
     } catch (error) {
-        console.error("Profile error:", error);
+        console.error("Błąd profilu:", error);
     }
 }
 
-// 3. Pobieranie listy gier
+// --- 3. POBIERANIE LISTY GIER ---
 async function pobierzIGrafikiGier(steamId) {
     try {
         const gamesUrl = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${apiKey}&steamid=${steamId}&include_appinfo=true&format=json`;
@@ -54,37 +59,42 @@ async function pobierzIGrafikiGier(steamId) {
 
         if (data.response && data.response.games) {
             zapisanaListaGier = data.response.games;
-            przefiltrowaneGry = [...zapisanaListaGier]; // Na starcie pokazujemy wszystko
+            przefiltrowaneGry = [...zapisanaListaGier];
+            
+            // Domyślne sortowanie po czasie gry
             sortujGry('playtime', document.querySelector('.leftcol-btn'));
         }
     } catch (error) {
-        console.error("Games error:", error);
+        console.error("Błąd pobierania gier:", error);
     }
 }
 
-// 4. Logika Wyszukiwania
+// --- 4. LOGIKA WYSZUKIWARKI ---
 function filtrujGry() {
-    const query = document.getElementById('searchInput').value.toLowerCase();
+    const searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    const query = searchInput.value.toLowerCase();
     
-    // Filtrujemy oryginalną listę gier
     przefiltrowaneGry = zapisanaListaGier.filter(gra => 
         gra.name.toLowerCase().includes(query)
     );
 
-    // Resetujemy widok i ładujemy od nowa
     wyswietloneGry = 0;
-    document.querySelector('.rightcol-content').innerHTML = ""; 
-    ladujWiecejGier();
+    const container = document.querySelector('.rightcol-content');
+    if (container) {
+        container.innerHTML = ""; 
+        ladujWiecejGier();
+    }
 }
 
-// 5. Logika sortowania
+// --- 5. LOGIKA SORTOWANIA ---
 function sortujGry(metoda, kliknietyBtn) {
     document.querySelectorAll('.leftcol-bar button').forEach(btn => btn.classList.remove('active-sort'));
     if (kliknietyBtn) kliknietyBtn.classList.add('active-sort');
 
-    // Sortujemy obie listy, aby wyszukiwanie po sortowaniu też działało
     const sortFn = (a, b) => {
-        if (metoda === 'playtime') return b.playtime_forever - a.playtime_forever;
+        if (metoda === 'playtime') return (b.playtime_forever || 0) - (a.playtime_forever || 0);
         if (metoda === 'name') return a.name.localeCompare(b.name);
         if (metoda === 'recent') return (b.rtime_last_played || 0) - (a.rtime_last_played || 0);
         return 0;
@@ -94,17 +104,22 @@ function sortujGry(metoda, kliknietyBtn) {
     przefiltrowaneGry.sort(sortFn);
 
     wyswietloneGry = 0;
-    document.querySelector('.rightcol-content').innerHTML = ""; 
-    ladujWiecejGier();
+    const container = document.querySelector('.rightcol-content');
+    if (container) {
+        container.innerHTML = ""; 
+        ladujWiecejGier();
+    }
 }
 
-// 6. Ładowanie gier (używa przefiltrowaneGry)
+// --- 6. RENDEROWANIE LISTY (PAGINACJA) ---
 function ladujWiecejGier() {
     const container = document.querySelector('.rightcol-content');
+    if (!container) return;
+
     const kolejnaPorcja = przefiltrowaneGry.slice(wyswietloneGry, wyswietloneGry + PORCJA_GIER);
 
     if (kolejnaPorcja.length === 0 && wyswietloneGry === 0) {
-        container.innerHTML = "<p style='color: #888; text-align: center; padding: 20px;'>No games found.</p>";
+        container.innerHTML = "<p style='color: #888; text-align: center; padding: 20px;'>Nie znaleziono gier.</p>";
         return;
     }
 
@@ -132,16 +147,19 @@ function ladujWiecejGier() {
     wyswietloneGry += PORCJA_GIER;
 }
 
-// 7. Scroll Listener
-document.querySelector('.rightcol').addEventListener('scroll', function() {
-    if (this.scrollTop + this.clientHeight >= this.scrollHeight - 20) {
-        if (wyswietloneGry < przefiltrowaneGry.length) {
-            ladujWiecejGier();
+// --- 7. OBSŁUGA SCROLLA W PRAWEJ KOLUMNIE ---
+const rightCol = document.querySelector('.rightcol');
+if (rightCol) {
+    rightCol.addEventListener('scroll', function() {
+        if (this.scrollTop + this.clientHeight >= this.scrollHeight - 20) {
+            if (wyswietloneGry < przefiltrowaneGry.length) {
+                ladujWiecejGier();
+            }
         }
-    }
-});
+    });
+}
 
-// 8. Statystyki
+// --- 8. SPRAWDZANIE OSIĄGNIĘĆ (DETAL GRY) ---
 async function Showstats(appId, titleName, playtime, clickedBtn) {
     const content = document.querySelector('.leftcol-content');
     const steamId = localStorage.getItem('zapisaneSteamID');
@@ -149,7 +167,7 @@ async function Showstats(appId, titleName, playtime, clickedBtn) {
     document.querySelectorAll('.rightcol button').forEach(btn => btn.classList.remove('active-title'));
     if (clickedBtn) clickedBtn.classList.add('active-title');
 
-    content.innerHTML = `<p style="color: #66c0f4;">Loading stats for ${titleName}...</p>`;
+    content.innerHTML = `<p style="color: #66c0f4;">Ładowanie statystyk dla ${titleName}...</p>`;
 
     try {
         const statsUrl = `https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/?key=${apiKey}&steamid=${steamId}&appid=${appId}`;
@@ -157,7 +175,7 @@ async function Showstats(appId, titleName, playtime, clickedBtn) {
         const data = await response.json();
 
         let statsHTML = `<h3 style="color: #66c0f4; border-bottom: 1px solid #444; padding-bottom: 10px;">${titleName}</h3>`;
-        statsHTML += `<p>Total Playtime: <strong>${Math.round(playtime / 60)}h</strong></p>`;
+        statsHTML += `<p style="margin-top:10px;">Czas gry: <strong>${Math.round(playtime / 60)}h</strong></p>`;
 
         if (data.playerstats && data.playerstats.success && Array.isArray(data.playerstats.achievements)) {
             const achievements = data.playerstats.achievements;
@@ -166,32 +184,47 @@ async function Showstats(appId, titleName, playtime, clickedBtn) {
             const percent = total > 0 ? Math.round((unlocked / total) * 100) : 0;
 
             statsHTML += `
-                <div class="stat-row" style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 15px;">
-                    <p>Achievements: <strong>${unlocked} / ${total}</strong> (${percent}%)</p>
+                <div class="stat-row" style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 8px; margin-top: 15px;color: white;">
+                    <p>Osiągnięcia: <strong>${unlocked} / ${total}</strong> (${percent}%)</p>
                     <div style="background: #444; width: 100%; height: 10px; border-radius: 5px; overflow: hidden; margin-top: 10px;">
                         <div style="background: #66c0f4; width: ${percent}%; height: 100%; transition: width 0.5s ease;"></div>
                     </div>
                 </div>
             `;
         } else {
-            statsHTML += `<p style="color: #888; margin-top: 15px;"><i>No achievement data.</i></p>`;
+            statsHTML += `<p style="color: #888; margin-top: 15px;"><i>Brak danych o osiągnięciach dla tego tytułu.</i></p>`;
         }
         content.innerHTML = statsHTML;
     } catch (e) {
-        content.innerHTML = `<p style="color: #ff4d4d;">Error loading stats.</p>`;
+        content.innerHTML = `<p style="color: #ff4d4d;">Błąd ładowania statystyk.</p>`;
     }
 }
 
+// --- 9. FUNKCJA LOGOWANIA (Z PRZYCISKU) ---
 async function pokazDaneGracza() {
     const inputLink = document.getElementById('steamInput').value;
     if (!inputLink) return;
     try {
         const steamId = await wyciagnijSteamID(inputLink);
         await wyswietlProfil(steamId);
-    } catch (e) { alert(e.message); }
+    } catch (e) { 
+        alert(e.message); 
+    }
 }
 
+// --- 10. WYLOGOWANIE ---
+function wyloguj() {
+    localStorage.removeItem('zapisaneSteamID');
+    location.reload();
+}
+
+// --- 11. AUTO-ŁADOWANIE PRZY ODŚWIEŻENIU ---
 window.onload = async function() {
     const zapamietaneID = localStorage.getItem('zapisaneSteamID');
-    if (zapamietaneID) await wyswietlProfil(zapamietaneID);
+    if (zapamietaneID) {
+        // Mały opóźniacz, żeby upewnić się, że DOM jest gotowy
+        setTimeout(() => {
+            wyswietlProfil(zapamietaneID);
+        }, 50);
+    }
 };
