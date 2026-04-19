@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="dstyle.css">
     <link rel="stylesheet" href="tile2.css">
     <link rel="stylesheet" href="game.css"> 
+    <link rel="stylesheet" href="emebeded-content.css">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -26,7 +27,7 @@
     <a href="#pierwszy-panel" onclick="toggleMenu()">Strona Główna</a>
     <a href="#drugi-panel" onclick="toggleMenu()">Statystyki</a>
     <a href="#trzeci-panel" onclick="toggleMenu()">Wyszukiwarka</a>
-    <a href="Steamlogin.html" target="blank" onclick="toggleMenu()">Logowanie</a>
+    <a href="Steamlogin.html" target="_self" onclick="toggleMenu()">Logowanie</a>
 </nav>
         <div id="userAvatarContainer" class="kolko-awatar">
             <div class="glowa"></div>
@@ -46,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="drugi-panel">
+    <div class="drugi-panel" id="drugi-panel">
         <div class="rightcol">
             <!--Bardzo poglądowe, chłopaki ja testuję-->
             <div class="rightcol-content">
@@ -205,10 +206,11 @@
         </div>
     </div>
 </div>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="script.js"></script>
     <script src="SteamAPI.js"></script>
     <script src="game.js"></script>
     <script src="dscript.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="twitchapi.js"></script>
 </body>
 </html>

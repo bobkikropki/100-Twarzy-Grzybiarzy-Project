@@ -1,0 +1,187 @@
+    /* Twitch */
+    .twitch-card {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: white;
+        text-decoration: none;
+    }
+    
+    .twitch-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .twitch-meta {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 18px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.88));
+    }
+    
+    .twitch-status {
+        display: inline-block;
+        margin-bottom: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background-color: rgba(145, 70, 255, 0.95);
+        font-size: 0.85rem;
+        font-weight: bold;
+    }
+    
+    .twitch-meta h3 {
+        margin: 0 0 6px;
+        font-size: 1.5rem;
+    }
+    
+    .twitch-meta p, .twitch-meta small {
+        margin: 0;
+        display: block;
+        color: #f2f2f2;
+    }
+    
+    .twitch-loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+    }
+    .twitch-embed-wrapper {
+        display: flex;
+        background-image: url(pliki/zdjęcia/twitch.png);
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        background-color: #0e0e10;
+    }
+    
+    .twitch-frame {
+        width: 95%;
+        height: 95%;
+        margin: auto;
+        min-height: 0;
+        border: 0;
+        background-color: #000;
+    }
+    
+    .twitch-open-link {
+        display: inline-block;
+        margin-top: 8px;
+        color: #bf94ff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    
+    .twitch-open-link:hover {
+        text-decoration: underline;
+    }
+
+
+/* ----------------------------------------------------- */
+
+
+
+
+    /* KICK */
+    .kick-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    color: #53fc18; /* Zielony kolor Kicka */
+    text-align: center;
+    font-weight: bold;
+    }
+
+.kick-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    }
+
+.kick-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    }
+
+.kick-meta {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 18px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+    }
+
+.kick-status {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background-color: #53fc18; /* Jaskrawa zieleń */
+    color: #000; /* Czarny tekst na zielonym tle */
+    font-size: 0.85rem;
+    font-weight: 800;
+    }
+
+.kick-meta h3 {
+    margin: 0 0 6px;
+    font-size: 1.5rem;
+    color: #fff;
+    }
+
+.kick-meta p {
+    margin: 0;
+    color: #cccccc;
+    }
+
+/* --- ODTWARZACZ KICK --- */
+.kick-embed-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background-color: #0b0e0f;
+    }
+
+.kick-frame {
+    width: 100%;
+    height: calc(100% - 110px); /* Zostawia 110px na dolny pasek z info */
+    min-height: 0;
+    border: 0;
+    background-color: #000;
+    }
+
+.kick-embed-info {
+    padding: 14px 18px 18px;
+    background: linear-gradient(180deg, #18181b 0%, #0b0e0f 100%);
+    color: white;
+    height: 110px;
+    }
+
+.kick-embed-info h3 {
+    margin: 8px 0 4px;
+    font-size: 1.2rem;
+    color: white;
+    }
+
+.kick-embed-info p {
+    display: block;
+    margin: 0;
+    color: #cccccc;
+    font-size: 0.9rem;
+    }

@@ -137,13 +137,6 @@ function renderTopTwitchStream(stream) {
                 allow="autoplay; fullscreen"
                 allowfullscreen>
             </iframe>
-            <div class="twitch-embed-info">
-                <span class="twitch-status">🔴 LIVE • ${formatViewers(stream.viewersCount)} widzów</span>
-                <h3>${streamerName}</h3>
-                <p>${gameName}</p>
-                <small>${streamTitle}</small>
-                <a class="twitch-open-link" href="${streamLink}" target="_blank" rel="noopener noreferrer">Otwórz kanał w Twitch</a>
-            </div>
         </div>
     `;
 }
