@@ -1,36 +1,68 @@
 
-const API_KEY = '';
 const searchBtn = document.getElementById('search-btn');
+const loadMoreBtn = document.getElementById('load-more-btn');
 const queryInput = document.getElementById('youtube-query');
 const resultsContainer = document.getElementById('video-results');
+const paginationContainer = document.getElementById('pagination-container');
 const modal = document.getElementById('video-modal');
 const player = document.getElementById('youtube-player');
 
+let nextPageToken = '';
+let currentQuery = '';
+
 searchBtn.addEventListener('click', () => {
-    const query = queryInput.value;
-    if (query) searchYouTube(query);
+    performSearch();
 });
 
 queryInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
-        const query = queryInput.value;
-        if (query) searchYouTube(query);
+        performSearch();
     }
 });
 
-async function searchYouTube(query) {
-    const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${encodeURIComponent(query)}&type=video&videoDuration=medium&key=${API_KEY}`;
+loadMoreBtn.addEventListener('click', () => {
+    if (nextPageToken) {
+        searchYouTube(currentQuery, nextPageToken);
+    }
+});
+
+function performSearch() {
+    const query = queryInput.value;
+    if (query) {
+        currentQuery = query;
+        nextPageToken = '';
+        resultsContainer.innerHTML = '';
+        searchYouTube(query);
+    }
+}
+
+async function searchYouTube(query, token = '') {
+    let url = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=16&q=${encodeURIComponent(query)}&type=video&videoDuration=medium&key=${API_KEY}`;
+    
+    if (token) {
+        url += `&pageToken=${token}`;
+    }
+
     try {
         const response = await fetch(url);
         const data = await response.json();
-        if (data.items) displayResults(data.items);
+        
+        if (data.items) {
+            displayResults(data.items);
+            nextPageToken = data.nextPageToken || '';
+            
+            if (nextPageToken) {
+                paginationContainer.style.display = 'flex';
+            } else {
+                paginationContainer.style.display = 'none';
+            }
+        }
     } catch (error) {
         console.error(error);
     }
 }
 
 function displayResults(videos) {
-    resultsContainer.innerHTML = '';
     videos.forEach(video => {
         const videoId = video.id.videoId;
         const title = video.snippet.title;
