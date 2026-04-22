@@ -1,75 +1,133 @@
-    <html>
-    <head>
-        <title>100 twarzy grzybiarzy</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="dstyle.css">
-        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    </head>
-    <body>
-
-        <div id="gora-pasek">
-            <div class="menu-ikona">=</div>
-            
-            <div class="znaczek-logo">L</div>
-            
-            <div class="kolko-awatar">
-                <div class="glowa"></div>
-                <div class="ramiona"></div>
-            </div>
-        </div>
-<html>
+<!DOCTYPE html>
+<html lang="pl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>100 twarzy grzybiarzy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dstyle.css">
+    <link rel="stylesheet" href="tile2.css">
+    <link rel="stylesheet" href="game.css"> 
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     
-    <div id="gora-pasek">
-        <div class="menu-ikona">=</div>
-        
-        <div class="znaczek-logo">L</div>
-        
-        <div class="kolko-awatar">
+<div id="gora-pasek">
+    <div class="menu-ikona" onclick="toggleMenu()">=</div>
+    <div class="znaczek-logo" id="main-logo">L</div>
+<div class="top-search-container">
+        <input type="text" id="game-search-input" placeholder="Wyszukaj grę na Steam..." autocomplete="off">
+        <i class="fas fa-search"></i>
+        <div id="search-suggestions" class="suggestions-box"></div>
+    </div>
+
+<nav id="side-menu" class="side-menu">
+    <a href="#pierwszy-panel" onclick="toggleMenu()">Strona Główna</a>
+    <a href="#drugi-panel" onclick="toggleMenu()">Statystyki</a>
+    <a href="#trzeci-panel" onclick="toggleMenu()">Wyszukiwarka</a>
+    <a href="Steamlogin.html" target="blank" onclick="toggleMenu()">Logowanie</a>
+</nav>
+        <div id="userAvatarContainer" class="kolko-awatar">
             <div class="glowa"></div>
             <div class="ramiona"></div>
         </div>
-    </div>
+</div>
 
-        <div class="pierwszy-panel">
-            <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/hi.gif" alt="hi"></div>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/YouTube-Logo-PNG7.png" alt="youtube"></div>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/Kick-Logo.png" alt="kick"></div>
-                <div class="gallery-cell"><img src="pliki/zdjęcia/twitch.png" alt="twitch" style="object-fit: cover;"></div>
+    <div class="pierwszy-panel" id="pierwszy-panel">
+        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
+            <div class="gallery-cell"><img src="pliki/zdjęcia/hi.gif" alt="hi"></div>
+            <div class="gallery-cell"><img src="pliki/zdjęcia/YouTube-Logo-PNG7.png" alt="youtube"></div>
+            <div class="gallery-cell" id="kick-cell">
+    <div class="kick-loading">Ładowanie najpopularniejszego streama z Kicka...</div>
+</div>
+            <div class="gallery-cell" id="twitch-cell">
+                <div class="twitch-loading">Ładowanie najpopularniejszego streama z Twitcha...</div>
             </div>
-            <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
         </div>
+    </div>
     <div class="drugi-panel">
         <div class="rightcol">
-            <div class="rightcol-header">
-                <h2>Steamgamename</h2>
-            </div>
             <!--Bardzo poglądowe, chłopaki ja testuję-->
             <div class="rightcol-content">
-                <input class="st_linkget" type="text" id="steamInput" name="fname" placeholder="wklej steamlink">
-                <button onclick="getID()">Pokaż gracza</button>
-                <div id="result"></div>
+                <button class="stat-button"></button>
+                <button class="stat-button"></button>
+                <button class="stat-button"></button>
+                <button class="stat-button"></button>
+                <button class="stat-button"></button>
             </div>
         </div>
         <div class="leftcol">
-            <div class="leftcol-header">
-                <h2>SteamStatistics</h2>
+            <div class="leftcol-bar">
+                <button class="leftcol-btn" onclick="sortujGry('playtime', this)">Sort by playtime</button>
+                <button class="leftcol-btn" onclick="sortujGry('name', this)">Sort by name</button>
+                <button class="leftcol-btn" onclick="sortujGry('recent', this)">Sort by recent</button>
+                <input type="text" id="searchInput" placeholder="Search game" oninput="filtrujGry()">
             </div>
             <div class="leftcol-content">
-                <p>Statistics</p>
             </div>
         </div>
     </div>
 
 
+<div id="gra" class="panel-gra" style="width: 100%; height: 800px; background-color: #1B2838; display: flex; justify-content: center; align-items: center; clear: both;">
+    
+    <div class="prostokat-srodek" style="width: 85%; height: 90%; background-color: #2a2d32; display: flex; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+        
+        <div class="leftcol-gra" style="flex: 1; background: rgba(0,0,0,0.2); padding: 20px; border-right: 1px solid #444;">
+            <div class="leftcol-header-gra">
+                <h2 style="color: #66c0f4; text-align: center;">Centrum Quizu</h2>
+            </div>
+            <div class="leftcol-content-gra">
+                <div class="game-stats" style="background: #171a21; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                    <p>Punkty: <strong id="current-points" style="color: #5cff5c;">0</strong></p>
+                    <p>Pytanie: <strong id="question-counter">0/10</strong></p>
+                </div>
+                
+                <hr style="border: 0; border-top: 1px solid #444; margin: 20px 0;">
+                
+                <h3 style="font-size: 1rem; margin-bottom: 15px;">Wybierz Grę:</h3>
+                <div class="category-selector">
+                    <button class="cat-btn" onclick="selectCategory('CS2')" style="width: 100%; background: #1b2838; color: #66c0f4; border: 1px solid #66c0f4; padding: 12px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">Counter-Strike 2</button>
+                    <button class="cat-btn" onclick="selectCategory('Wiedźmin')" style="width: 100%; background: #1b2838; color: #66c0f4; border: 1px solid #66c0f4; padding: 12px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">Wiedźmin 3</button>
+                    <button class="cat-btn" onclick="selectCategory('Isaac')" style="width: 100%; background: #1b2838; color: #66c0f4; border: 1px solid #66c0f4; padding: 12px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">Isaac</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightcol-gra" style="flex: 3; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
+            
+            <div id="welcome-screen" style="text-align: center;">
+                <h1 style="color: #66c0f4; font-size: 2.5rem;">MILIONERZY</h1>
+                <p style="color: #8f98a0;">Wybierz kategorię po lewej, aby rozpocząć grę!</p>
+            </div>
+
+            <div id="quiz-active" style="display: none;">
+                <div id="image-container" style="text-align: center; margin-bottom: 20px;">
+                    <img id="q-img" src="" style="max-height: 350px; border-radius: 8px; border: 2px solid #444;">
+                </div>
+                <h2 id="q-text" style="text-align: center; margin-bottom: 25px; color: #aaa9a9;">Pytanie...</h2>
+                
+                <div class="answers-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <button class="answer-btn" onclick="handleAnswer(0)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja A</button>
+                    <button class="answer-btn" onclick="handleAnswer(1)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja B</button>
+                    <button class="answer-btn" onclick="handleAnswer(2)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja C</button>
+                    <button class="answer-btn" onclick="handleAnswer(3)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja D</button>
+                </div>
+            </div>
+
+            <div id="result-screen" style="display: none; text-align: center;">
+                <h2>Koniec Gry!</h2>
+                <p style="font-size: 1.5rem;">Twój wynik: <span id="final-score" style="color: #66c0f4;">0</span>/10</p>
+                <button onclick="location.reload()" style="background: #66c0f4; border: none; color: white; padding: 10px 20px; cursor: pointer; border-radius: 4px; margin-top: 15px;">Zagraj ponownie</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
     <!--dawid-->
-<div class="trzeci-panel">
+<div class="trzeci-panel" id="trzeci-panel">
     <div class="sidebar">
         <input type="text" id="youtube-query" placeholder="Wyszukaj..">
         <button id="search-btn">Szukaj</button>
@@ -87,12 +145,73 @@
     </div>
 </div>
 <!--dawid-->
-    <div class="czwarty-panel"></div>
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2 class="footer-logo">100 TWARZY<span>GRZYBIARZY</span></h2>
+            <p>Lubie grzyby</p>
+        </div>
 
-        <script src="skrypt.js"></script>
-    </body>
-    </html>
+        <div class="footer-section contact">
+            <h3>Kontakt</h3>
+            <p><i class="fas fa-envelope"></i> 100twarzygrzybiarzy@gmail.com</p>
+            
+            <div class="social-icons">
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3571412768"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-steam"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section accessibility">
+            <h3>Ustawienia strony</h3>
+            <button class="a11y-footer-btn" onclick="toggleA11yPanel()" aria-label="Otwórz panel ułatwień dostępu">
+                <i class="fas fa-universal-access"></i> Ułatwienia dostępu
+            </button>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 100 TWARZY GRZYBIARZY | CREATED BY SIGMY
+    </div>
+</footer>
+
+<div id="a11y-panel" class="a11y-side-panel">
+    <div class="a11y-header">
+        <h3>Ułatwienia dostępu</h3>
+        <span class="close-a11y" onclick="toggleA11yPanel()">&times;</span>
+    </div>
+    
+    <div class="a11y-content">
+        <div class="a11y-option">
+            <span class="a11y-label-text">Tryb dla daltonistów (Protanopia)</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+        <div class="a11y-option">
+            <span class="a11y-label-text">Wysoki kontrast (Tekst)</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+        
+        <div class="a11y-option">
+            <span class="a11y-label-text">Większa czcionka (+20%)</span>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+</div>
     <script src="script.js"></script>
+    <script src="SteamAPI.js"></script>
+    <script src="game.js"></script>
     <script src="dscript.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
 </html>

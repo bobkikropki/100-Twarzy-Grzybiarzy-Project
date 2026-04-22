@@ -1,0 +1,124 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.drugi-panel {
+       height: 50vh;
+       width: 100%;
+      display: flex;
+      flex-direction: row-reverse;
+      background-color: #101214;
+}
+.rightcol {
+    overflow-y: auto;
+    background-color: #1a1d24;
+    width: 25%;
+    height: 100%;
+    margin-right: 16.5%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 10px;
+}
+.leftcol{
+    background-color: #292e37;
+    width: 42%;
+    height: 100%;
+    margin-left: 0px;
+    float: unset;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.leftcol-bar{
+
+    color: #66c0f4;
+    width: 100%;
+    height: 15%;
+    background-color: #1a1d24;
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.leftcol-bar button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 12px;
+    display: right;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    width: 25%;
+}
+.leftcol-bar button:hover {
+    color: #66c0f4;
+}
+.leftcol-bar input {
+    background-color: transparent;
+    padding: 8px;
+    border: 1px solid #34495e;
+    color: white;
+    width: 25%;
+}
+.leftcol-bar input:focus {
+    outline: none;
+    border-color: #66c0f4;
+}
+.rightcol button{
+    display: flex;           /* Układ poziomy: obrazek | tekst */
+    align-items: center;     /* Centrowanie w pionie */
+    background-color: #232730;
+    width: 100%;
+    height: 80px;            /* Stała wysokość dla równego wyglądu */
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;     /* Zaokrąglone rogi guzika */
+    padding: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    overflow: hidden;
+
+}
+.rightcol button:hover {
+    filter: brightness(1.1);
+    background-color: #252932;
+}
+.btn-img {
+    width: 50px;             /* Szerokość miniaturki */
+    height: 100%;            /* Pełna wysokość guzika */
+    object-fit: cover;       /* Nie rozciąga obrazka */
+    border-radius: 6px;      /* Zaokrąglone rogi samej fotki */
+    margin-right: 15px;      /* Odstęp między fotką a tekstem */
+}
+.btn-text {
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+.stat-button:hover {
+    filter: brightness(1.5);
+    background-color: #1a1a19;
+    color: white;
+}
+.rightcol::-webkit-scrollbar {
+    width: 5px;
+}
+.rightcol::-webkit-scrollbar-thumb {
+    background: #444;
+}
+.rightcol button.active-title {
+    background-color: #66c0f4 !important; /* Steamowy błękit */
+    filter: brightness(1.1);
+    transition: background-color 0.3s ease;
+}
+
+.rightcol button.active-title .btn-text {
+    color: #101214 !important; /* Ciemny tekst dla lepszego kontrastu */
+}
+.leftcol-bar button.active-sort {
+    color: #66c0f4;
+    border-bottom: 2px solid #66c0f4;
+    filter: brightness(1.2);
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steam Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tile2.css">
+    <link rel="stylesheet" href="Steamlogin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="gora-pasek">
+       <div class="menu-ikona" onclick="toggleMenu()">=</div>
+
+    <nav id="side-menu" class="side-menu">
+        <a href="#pierwszy-panel" onclick="refhome()">Strona Główna</a>
+    </nav>
+          <div id="userAvatarContainer" class="kolko-awatar">
+                <div class="glowa"></div>
+                <div class="ramiona"></div>
+          </div>
+          <button onclick="wyloguj()" id="LogoutButton">Wyloguj</button>
+    </div>
+    <div id="loginSection">
+        <h1 id="WelcomeText">Steam Login</h1>
+        <input type="text" id="steamInput" placeholder="https://steamcommunity.com/id/..." />
+        <button onclick="pokazDaneGracza()" id="SteamButton">Login</button>
+        <div id="wynik"></div>
+    </div>
+    <footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2 class="footer-logo">100 TWARZY<span>GRZYBIARZY</span></h2>
+            <p>Lubie grzyby</p>
+        </div>
+
+        <div class="footer-section contact">
+            <h3>Kontakt</h3>
+            <p><i class="fas fa-envelope"></i> 100twarzygrzybiarzy@gmail.com</p>
+            
+            <div class="social-icons">
+                <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3571412768"><i class="fab fa-discord"></i></a>
+                <a href="#"><i class="fab fa-steam"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section accessibility">
+            <h3>Ustawienia strony</h3>
+            <button class="a11y-footer-btn" onclick="toggleA11yPanel()" aria-label="Otwórz panel ułatwień dostępu">
+                <i class="fas fa-universal-access"></i> Ułatwienia dostępu
+            </button>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        &copy; 2026 100 TWARZY GRZYBIARZY | CREATED BY SIGMY
+    </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="SteamAPI.js"></script>
+    <script src="game.js"></script>
+    <script src="dscript.js"></script>
+</body>
+
+</html>
