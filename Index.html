@@ -71,59 +71,58 @@
     </div>
 
 
-<div id="gra" class="panel-gra" style="width: 100%; height: 800px; background-color: #1B2838; display: flex; justify-content: center; align-items: center; clear: both;">
-    
-    <div class="prostokat-srodek" style="width: 85%; height: 90%; background-color: #2a2d32; display: flex; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+<div id="gra" class="panel-gra">
+    <div class="prostokat-srodek">
         
-        <div class="leftcol-gra" style="flex: 1; background: rgba(0,0,0,0.2); padding: 20px; border-right: 1px solid #444;">
+        <div class="leftcol-gra">
             <div class="leftcol-header-gra">
-                <h2 style="color: #66c0f4; text-align: center;">Centrum Quizu</h2>
+                <h2>Centrum Quizu</h2>
             </div>
             <div class="leftcol-content-gra">
-                <div class="game-stats" style="background: #171a21; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
-                    <p>Punkty: <strong id="current-points" style="color: #5cff5c;">0</strong></p>
+                <div class="game-stats">
+                    <p>Punkty: <strong id="current-points">0</strong></p>
                     <p>Pytanie: <strong id="question-counter">0/10</strong></p>
                 </div>
                 
-                <hr style="border: 0; border-top: 1px solid #444; margin: 20px 0;">
+                <hr>
                 
-                <h3 style="font-size: 1rem; margin-bottom: 15px;">Wybierz Grę:</h3>
+                <h3>Wybierz Grę:</h3>
                 <div class="category-selector">
-                    <button class="cat-btn" onclick="selectCategory('CS2')" style="width: 100%; background: #1b2838; color: #66c0f4; border: 1px solid #66c0f4; padding: 12px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">Counter-Strike 2</button>
-                    <button class="cat-btn" onclick="selectCategory('Wiedźmin')" style="width: 100%; background: #1b2838; color: #66c0f4; border: 1px solid #66c0f4; padding: 12px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">Wiedźmin 3</button>
-                    <button class="cat-btn" onclick="selectCategory('Isaac')" style="width: 100%; background: #1b2838; color: #66c0f4; border: 1px solid #66c0f4; padding: 12px; margin-bottom: 10px; cursor: pointer; font-weight: bold;">Isaac</button>
+                    <button class="cat-btn" onclick="selectCategory('CS2')">Counter-Strike 2</button>
+                    <button class="cat-btn" onclick="selectCategory('Wiedźmin')">Wiedźmin 3</button>
+                    <button class="cat-btn" onclick="selectCategory('Isaac')">Isaac</button>
                 </div>
             </div>
         </div>
 
-        <div class="rightcol-gra" style="flex: 3; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
+        <div class="rightcol-gra">
             
-            <div id="welcome-screen" style="text-align: center;">
-                <h1 style="color: #66c0f4; font-size: 2.5rem;">MILIONERZY</h1>
-                <p style="color: #8f98a0;">Wybierz kategorię po lewej, aby rozpocząć grę!</p>
+            <div id="welcome-screen">
+                <h1>MILIONERZY</h1>
+                <p>Wybierz kategorię po lewej, aby rozpocząć grę!</p>
             </div>
 
-            <div id="quiz-active" style="display: none;">
-                <div id="image-container" style="text-align: center; margin-bottom: 20px;">
-                    <img id="q-img" src="" style="max-height: 350px; border-radius: 8px; border: 2px solid #444;">
+            <div id="quiz-active">
+                <div id="image-container">
+                    <img id="q-img" src="" alt="Obrazek do pytania">
                 </div>
-                <h2 id="q-text" style="text-align: center; margin-bottom: 25px; color: #aaa9a9;">Pytanie...</h2>
+                <h2 id="q-text">Pytanie...</h2>
                 
-                <div class="answers-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                    <button class="answer-btn" onclick="handleAnswer(0)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja A</button>
-                    <button class="answer-btn" onclick="handleAnswer(1)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja B</button>
-                    <button class="answer-btn" onclick="handleAnswer(2)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja C</button>
-                    <button class="answer-btn" onclick="handleAnswer(3)" style="background: #3d4450; color: white; border: 1px solid #555; padding: 15px; cursor: pointer; border-radius: 4px;">Opcja D</button>
+                <div class="answers-grid">
+                    <button class="answer-btn" onclick="handleAnswer(0)">Opcja A</button>
+                    <button class="answer-btn" onclick="handleAnswer(1)">Opcja B</button>
+                    <button class="answer-btn" onclick="handleAnswer(2)">Opcja C</button>
+                    <button class="answer-btn" onclick="handleAnswer(3)">Opcja D</button>
                 </div>
             </div>
 
-            <div id="result-screen" style="display: none; text-align: center;">
+            <div id="result-screen">
                 <h2>Koniec Gry!</h2>
-                <p style="font-size: 1.5rem;">Twój wynik: <span id="final-score" style="color: #66c0f4;">0</span>/10</p>
-                <button onclick="location.reload()" style="background: #66c0f4; border: none; color: white; padding: 10px 20px; cursor: pointer; border-radius: 4px; margin-top: 15px;">Zagraj ponownie</button>
+                <p class="score-text">Twój wynik: <span id="final-score">0</span>/10</p>
+                <button class="reload-btn" onclick="location.reload()">Zagraj ponownie</button>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
 
@@ -207,6 +206,13 @@
     </div>
 </div>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<div id="footer-cat" class="footer-cat-wrapper">
+        <img src="https://cdn-icons-png.flaticon.com/512/1864/1864514.png" alt="Kotek">
+    </div>
+
+<div id="secret-egg" class="hidden">
+        <img src="pliki/zdjęcia/jumpscare.png" class="fullscreen-photo" alt="Niespodzianka">
+    </div>
     <script src="script.js"></script>
     <script src="SteamAPI.js"></script>
     <script src="game.js"></script>

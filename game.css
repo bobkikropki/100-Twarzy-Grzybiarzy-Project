@@ -56,3 +56,180 @@
     color: #5cff5c;
     text-shadow: 0 0 10px rgba(92, 255, 92, 0.4);
 }
+
+
+/* ==========================================
+   GŁÓWNY KONTENER QUIZU
+========================================== */
+.panel-gra {
+    width: 100%;
+    height: 800px;
+    background-color: #1B2838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clear: both;
+}
+
+.prostokat-srodek {
+    width: 85%;
+    height: 90%;
+    background-color: #2a2d32;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* ==========================================
+   LEWA KOLUMNA (MENU)
+========================================== */
+.leftcol-gra {
+    flex: 1;
+    background: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-right: 1px solid #444;
+}
+
+.leftcol-header-gra h2 {
+    color: #66c0f4;
+    text-align: center;
+}
+
+.game-stats {
+    background: #171a21;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#current-points {
+    color: #5cff5c;
+}
+
+.leftcol-content-gra hr {
+    border: 0;
+    border-top: 1px solid #444;
+    margin: 20px 0;
+}
+
+.leftcol-content-gra h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Przyciski wyboru kategorii */
+.cat-btn {
+    width: 100%;
+    background: #1b2838;
+    color: #66c0f4;
+    border: 1px solid #66c0f4;
+    padding: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, color 0.2s; /* Płynna animacja */
+}
+
+.cat-btn:hover {
+    background: #66c0f4;
+    color: #1b2838;
+}
+
+/* ==========================================
+   PRAWA KOLUMNA (POLE GRY)
+========================================== */
+.rightcol-gra {
+    flex: 3;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* EKRAN POWITALNY */
+#welcome-screen {
+    text-align: center;
+}
+
+#welcome-screen h1 {
+    color: #66c0f4;
+    font-size: 2.5rem;
+}
+
+#welcome-screen p {
+    color: #8f98a0;
+}
+
+/* EKRAN AKTYWNEGO QUIZU */
+#quiz-active {
+    display: none; /* Ukryte na start, pokazywane przez JS */
+}
+
+#image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#q-img {
+    max-height: 350px;
+    border-radius: 8px;
+    border: 2px solid #444;
+}
+
+#q-text {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #aaa9a9;
+}
+
+.answers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Przyciski z odpowiedziami */
+.answer-btn {
+    background: #3d4450;
+    color: white;
+    border: 1px solid #555;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.answer-btn:hover {
+    background: #4b5363;
+}
+
+/* EKRAN KOŃCOWY */
+#result-screen {
+    display: none; /* Ukryte na start, pokazywane przez JS */
+    text-align: center;
+}
+
+.score-text {
+    font-size: 1.5rem;
+}
+
+#final-score {
+    color: #66c0f4;
+}
+
+.reload-btn {
+    background: #66c0f4;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.reload-btn:hover {
+    background: #54a5d3;
+}
