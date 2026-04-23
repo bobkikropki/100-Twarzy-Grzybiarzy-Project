@@ -38,7 +38,9 @@
     <div class="pierwszy-panel" id="pierwszy-panel">
         <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": true }'>
             <div class="gallery-cell"><img src="pliki/zdjęcia/hi.gif" alt="hi"></div>
-            <div class="gallery-cell"><img src="pliki/zdjęcia/YouTube-Logo-PNG7.png" alt="youtube"></div>
+            <div class="gallery-cell" id="yt-live-cell">
+    <div class="yt-loading">Ładowanie najpopularniejszego streama YT...</div>
+</div>
             <div class="gallery-cell" id="kick-cell">
     <div class="kick-loading">Ładowanie najpopularniejszego streama z Kicka...</div>
 </div>
@@ -132,9 +134,12 @@
         <input type="text" id="youtube-query" placeholder="Wyszukaj..">
         <button id="search-btn">Szukaj</button>
     </div>
-    <div id="video-results">
+    <div id="video-results"></div>
+    <div id="pagination-container" style="margin-top: 20px; display: none;">
+        <button id="load-more-btn">Załaduj więcej</button>
     </div>
 </div>
+
 <div id="video-modal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
