@@ -62,11 +62,15 @@
         </div>
         <div class="leftcol">
             <div class="leftcol-bar">
-                <button class="leftcol-btn" onclick="sortujGry('playtime', this)">Sort by playtime</button>
-                <button class="leftcol-btn" onclick="sortujGry('name', this)">Sort by name</button>
-                <button class="leftcol-btn" onclick="sortujGry('recent', this)">Sort by recent</button>
-                <input type="text" id="searchInput" placeholder="Search game" oninput="filtrujGry()">
-            </div>
+                <button class="leftcol-btn active-sort" onclick="sortujGry('playtime', this)">Top Playtime</button>
+                <button class="leftcol-btn" onclick="sortujGry('name', this)">Alphabetical</button>
+                <button class="leftcol-btn" onclick="sortujGry('recent', this)">Recently Played</button>
+                <div style="position: relative; width: 25%;">
+                    <input type="text" id="searchInput" placeholder="Search..." oninput="filtrujGry()" 
+                        style="width: 100%; padding-left: 30px; border-radius: 20px; background: #101214;">
+                    <i class="fas fa-search" style="position: absolute; left: 10px; top: 12px; font-size: 12px; color: #444;"></i>
+        </div>
+</div>
             <div class="leftcol-content">
             </div>
         </div>

@@ -130,21 +130,24 @@ body {
 }
 
 .kolko-awatar {
-    background-color: #B28381;
-    width: 35px; /* Lekko powiększyłem dla widoczności */
+    background-color: #2a475e;
+    width: 35px;
     height: 35px;
     border-radius: 50%;
-    float: right;
-    margin-right: 20px;
-    margin-top: 6px;
     flex-shrink: 0;
-    overflow: hidden; /* To jest kluczowe dla zdjęcia profilowego */
+    overflow: hidden;
     position: relative;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    border: 1px solid #66c0f4;
 }
-
+.steam-avatar-overlay {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ważne: wypełnia kółko bez rozciągania */
+    display: block;
+}
 .glowa {
     background-color: #ffffff;
     width: 10px;
@@ -659,7 +662,6 @@ input:checked + .slider:before { transform: translateX(24px); } /* Przesunięcie
     background-color: white;
     transition: .4s;
 }
-
 /* Co się dzieje, jak klikniesz (zaznaczysz) */
 input:checked + .slider { background-color: #66c0f4; } /* Niebieski Steam */
 input:focus + .slider { box-shadow: 0 0 1px #66c0f4; }
