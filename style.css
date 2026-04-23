@@ -228,8 +228,6 @@ body {
     font-weight: bold;
     text-align: center;
     line-height: 30px;
-    
-    position: absolute;
     left: 48%;
     top: 10px;
 }
@@ -773,3 +771,46 @@ input:checked + .slider:before { transform: translateX(26px); } /* Przesunięcie
 /* Zaokrąglenia */
 .slider.round { border-radius: 34px; }
 .slider.round:before { border-radius: 50%; }
+
+
+
+
+/* Przycisk kota */
+.footer-cat-wrapper {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.2s ease-in-out; 
+}
+.footer-cat-wrapper img { 
+    width: 40px; 
+    height: 40px; 
+}
+
+/* Easter Egg - czarne tło na cały ekran */
+#secret-egg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ukrywanie elementu */
+#secret-egg.hidden {
+    display: none !important;
+}
+
+/* Samo zdjęcie bez żadnych filtrów */
+.fullscreen-photo {
+    max-width: 100%;
+    max-height: 100vh;
+    object-fit: contain; /* pilnuje, żeby zdjęcie się nie rozciągnęło i zachowało proporcje */
+}
