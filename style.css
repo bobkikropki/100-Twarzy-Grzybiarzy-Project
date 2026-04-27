@@ -5,10 +5,10 @@
 
 body { 
     font-family: sans-serif; 
-    padding: 40px; /* marginesy, żeby karuzela nie dotykała krawędzi ekranu */
+    min-height: 100vh;
     background-color: #171A21;
-    margin: 0%;
-    padding: 0%;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     }
 
@@ -55,17 +55,18 @@ body {
 #gora-pasek {
     background-color: #101214;
     height: 3em;
-    width: 100%;
     position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     
-   
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     padding: 0 20px; 
     box-sizing: border-box; 
+    width: 100%;
 }
     
 .menu-ikona {
@@ -693,8 +694,8 @@ input:checked + .slider:before { transform: translateX(26px); } /* Przesunięcie
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-color: #000000;
     z-index: 9999;
     display: flex;
@@ -712,4 +713,93 @@ input:checked + .slider:before { transform: translateX(26px); } /* Przesunięcie
     max-width: 100%;
     max-height: 100vh;
     object-fit: contain; /* pilnuje, żeby zdjęcie się nie rozciągnęło i zachowało proporcje */
+}
+
+/* ======= Responsive mobile support ======= */
+@media (max-width: 900px) {
+    body {
+        padding-bottom: 60px;
+    }
+
+    .gallery {
+        padding: 16px 0;
+        height: auto;
+    }
+
+    .gallery-cell {
+        width: 90vw;
+        height: 50vw;
+        margin-top: 4vh;
+        margin-right: 10px;
+    }
+
+    #gora-pasek {
+        padding: 0 14px;
+    }
+
+    .znaczek-logo {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+    }
+
+    .top-search-container {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .top-search-container i {
+        font-size: 13px;
+        margin-left: 8px;
+    }
+
+    .side-menu {
+        width: 50%;
+    }
+
+    .pierwszy-panel {
+        margin-top: 3.5em;
+        min-height: calc(100vh - 3.5em);
+    }
+
+    .footer-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 0 20px;
+        gap: 25px;
+    }
+
+    .footer-section {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-cell {
+        width: 95vw;
+        height: 55vw;
+    }
+
+    .menu-ikona {
+        font-size: 26px;
+    }
+
+    .top-search-container {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .suggestions-box {
+        width: calc(100% - 4px);
+    }
+
+    #gora-pasek {
+        height: 3.2em;
+        padding: 0 12px;
+    }
+
+    .footer-bottom {
+        margin-top: 25px;
+        padding-top: 15px;
+    }
 }

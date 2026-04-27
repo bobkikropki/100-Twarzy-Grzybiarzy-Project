@@ -244,3 +244,65 @@
     padding: 2px 8px;
     border-radius: 10px;
 }
+
+@media (max-width: 900px) {
+    .drugi-panel {
+        flex-direction: column;
+        padding: 4em 2% 2em;
+        height: auto;
+    }
+
+    .leftcol,
+    .rightcol {
+        width: 100%;
+        height: auto;
+        padding: 20px 0;
+    }
+
+    .leftcol-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .leftcol-bar > div {
+        width: 100% !important;
+    }
+
+    .leftcol-bar input {
+        width: 100%;
+    }
+
+    .rightcol {
+        padding-left: 0;
+    }
+
+    .stat-button {
+        height: auto;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px;
+    }
+
+    .btn-img {
+        height: 70px;
+        margin-right: 12px;
+    }
+
+    .btn-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .drugi-panel {
+        padding: 3.5em 10px 1.5em;
+    }
+
+    .stat-button {
+        gap: 10px;
+    }
+
+    .btn-text {
+        white-space: normal;
+    }
+}

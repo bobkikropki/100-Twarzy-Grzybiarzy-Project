@@ -233,3 +233,79 @@
 .reload-btn:hover {
     background: #54a5d3;
 }
+
+@media (max-width: 900px) {
+    .panel-gra {
+        height: auto;
+        padding: 40px 10px 30px;
+    }
+
+    .prostokat-srodek {
+        flex-direction: column;
+        width: 95%;
+        height: auto;
+        gap: 15px;
+    }
+
+    .leftcol-gra {
+        border-right: none;
+        border-bottom: 1px solid #444;
+        padding: 20px 16px;
+    }
+
+    .rightcol-gra {
+        padding: 20px 16px;
+    }
+
+    .game-stats p {
+        font-size: 1rem;
+    }
+
+    .cat-btn {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    #q-img {
+        max-height: 230px;
+        width: 100%;
+    }
+
+    .answers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .answer-btn {
+        font-size: 1rem;
+        min-height: 55px;
+    }
+
+    #welcome-screen h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .prostokat-srodek {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .leftcol-gra,
+    .rightcol-gra {
+        padding: 15px;
+    }
+
+    .panel-gra {
+        padding: 20px 8px 25px;
+    }
+
+    #q-text {
+        font-size: 1rem;
+    }
+
+    .answer-btn {
+        padding: 12px;
+    }
+}

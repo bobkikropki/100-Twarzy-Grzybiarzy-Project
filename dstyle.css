@@ -181,3 +181,46 @@
     font-family: sans-serif;
     font-weight: bold;
 }
+
+@media (max-width: 900px) {
+    .trzeci-panel {
+        padding: 40px 16px;
+        min-height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #video-results {
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        max-width: 700px;
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 10px;
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    #video-results {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        padding: 0;
+    }
+
+    #pagination-container {
+        padding-top: 10px;
+    }
+}
